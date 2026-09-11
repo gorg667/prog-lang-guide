@@ -1074,3 +1074,176 @@ You don't need a job from this; you want joy, insight, and things that work.
 - **Pace:** one new language per year, each with a real project, is a wonderful decade-long curriculum. Advent of Code in December is the traditional way to try a new language.
 
 ---
+
+## Part VI — Sequencing: your second, third, and fourth language
+
+### 6.1 The principle: maximize *conceptual distance*, minimize *career distance*
+
+Your first language should be chosen for employability and learnability. Every language after that should be chosen to teach you something the previous ones couldn't — **while staying close enough to your career that you'll actually use it.**
+
+Learning Python then Ruby teaches you almost nothing new (both dynamic, GC'd, OOP-ish scripting languages). Learning Python then Rust teaches you ownership, static types, traits, zero-cost abstractions, and how memory actually works. Learning Python then Haskell teaches you purity, laziness, and algebraic types. The second pair is worth ten of the first.
+
+### 6.2 Recommended sequences
+
+**The generalist web/product engineer**
+1. **TypeScript** (job) → 2. **Python** (data/AI/automation, second job market) → 3. **Go** (backend/infra, concurrency, compiled) → 4. **Rust** or **Elixir** (mastery: ownership, or the actor model)
+
+**The data/AI engineer**
+1. **Python** (job) → 2. **SQL** deeply (it's a language; treat it as one) → 3. **TypeScript** (ship UIs for your models) → 4. **Rust** (build fast data tools; read Polars/DataFusion source) or **C++/CUDA** (kernels)
+
+**The systems engineer**
+1. **C** (foundation) → 2. **Rust** (modern systems) → 3. **C++** (the incumbents) → 4. **Go** (distributed systems) or **Zig** (allocators/comptime, insight) → 5. **Assembly** (throughout, as needed)
+
+**The enterprise engineer**
+1. **Java** or **C#** (job) → 2. **SQL** deeply → 3. **Kotlin** (if Java) / **F#** (if C#) → 4. **TypeScript** (frontends) → 5. **Go** or **Python** (cloud tooling)
+
+**The mobile engineer**
+1. **Kotlin** or **Swift** (job) → 2. the other one (you'll need to read it) → 3. **TypeScript** (React Native, web dashboards, backends) → 4. **Rust** (shared cross-platform cores via FFI — a growing pattern) or **Go** (backends)
+
+**The game developer**
+1. **C#** (Unity/Godot; ship things) → 2. **C++** (Unreal, engines, the industry standard) → 3. **Lua** (scripting layers) → 4. shader languages (HLSL/GLSL/WGSL — not optional) → 5. **Rust** (Bevy, tooling) for curiosity
+
+**The security engineer**
+1. **Python** (tooling) → 2. **C** (understand targets) → 3. **Bash** + **PowerShell** → 4. **Assembly** (x86-64, ARM64) → 5. **Go** (implants/tooling) → 6. **Rust** (secure tooling) and **JavaScript** (web targets)
+
+**The "become excellent" path (for anyone, after year two)**
+Pick one from each: a **systems** language (Rust or C), a **typed functional** language (OCaml or Haskell), a **Lisp** (Racket or Clojure), and an **actor/concurrency** language (Elixir/Erlang). Spend three months on each with a real project. You'll emerge a different programmer.
+
+### 6.3 What *not* to do
+
+- **Don't learn two similar languages back-to-back** (Python → Ruby, Java → C#, JS → Dart) unless a job requires it. Marginal learning is near zero.
+- **Don't collect languages at tutorial depth.** Five languages at "hello world + a to-do app" is worth less than one at "shipped and maintained for a year."
+- **Don't learn a language "for the salary"** without the domain to go with it (see §2.3).
+- **Don't chase the language of the month.** If it's still relevant in three years, it'll still be there.
+- **Don't skip SQL and Bash.** They're not glamorous; they're load-bearing.
+
+### 6.4 How long does each additional language take?
+
+Rough figures for someone who already programs professionally in one language:
+
+| Transition type | Example | Time to productive | Time to idiomatic |
+|---|---|---|---|
+| Same family, same paradigm | Java → C#, JS → TS, Python → Ruby | days | weeks |
+| Same paradigm, new type discipline | Python → Go, JS → Java | 1–2 weeks | 2–3 months |
+| New memory model | Python → C, Java → Rust | 1–2 months | 6–12 months |
+| New paradigm | Java → Haskell, Python → Clojure, anything → Prolog | 1–3 months to think in it | 6–12 months |
+| New everything | JS → Rust, Python → APL | 2–4 months | 12+ months |
+
+LLM assistance roughly halves the "productive" column for popular languages and does little for the "idiomatic" column — idiom comes from reading good code and getting reviewed.
+
+---
+
+## Part VII — How to actually learn a language in 2026
+
+Language choice is 20% of the outcome. Method is the other 80%. This section is short because the advice is simple; it's just rarely followed.
+
+### 7.1 The loop that works
+
+1. **Pick a project you want to exist** before you start. Not a tutorial project — yours. Small enough to finish in 2–4 weeks.
+2. **Learn the minimum** to start it: syntax basics, the standard library's most-used parts, how to run and debug. One good book or course, skimmed; not five, completed.
+3. **Build, get stuck, unstick yourself.** This is where learning happens. Use docs first, an AI assistant second, a human third.
+4. **Type the code yourself** for the first few months. Autocomplete and agents are fine *after* you can write it unassisted; before that, they build a false sense of competence.
+5. **Read code you didn't write** — the standard library, popular open-source projects, your AI assistant's output (critically). This is the fastest way to learn idiom.
+6. **Get reviewed.** Post to a community, open a PR, pair with someone. Feedback is the compression algorithm for experience.
+7. **Ship it.** Deploy, publish, share. Then start the next one, slightly bigger.
+
+### 7.2 Using AI assistants well
+
+AI coding tools are now used by 85% of developers (JetBrains 2025) and ~80% of new GitHub users in their first week. They are extraordinary learning tools *if used correctly*, and career-limiting if used as a substitute for understanding.
+
+**Do:**
+- Ask *why* — "explain this error," "why is this idiomatic," "what are three ways to do this and their trade-offs."
+- Ask for critiques of *your* code.
+- Use it as a tireless, patient tutor for hard languages (this is exactly how Rust's learning curve got flattened).
+- Generate test cases and edge cases you didn't think of.
+- Have it explain unfamiliar codebases.
+
+**Don't:**
+- Paste generated code you can't explain line by line. Interviewers will ask; production will break.
+- Let it pick your architecture. It's biased toward the median of its training data.
+- Trust it on obscure languages, fast-moving APIs, or anything version-specific — hallucinated APIs are common (Welsh, IEEE both flag this). Verify against docs.
+- Skip fundamentals because "the AI knows them." The AI needs *you* to know when it's wrong.
+
+**Rule of thumb:** for your first ~200 hours in a language, use AI to *explain* and *review*, not to *write*. After that, use it to write boilerplate and *always* read what it wrote.
+
+### 7.3 Resources by language (starting points, not exhaustive)
+
+| Language | Start here | Then |
+|---|---|---|
+| Python | *Python Crash Course* (Matthes), or the official tutorial; *Automate the Boring Stuff* for non-programmers | *Fluent Python* (Ramalho); Real Python; exercism.org |
+| JavaScript/TypeScript | javascript.info; *The TypeScript Handbook*; Total TypeScript (Pocock) | *Effective TypeScript*; the React docs (react.dev); Frontend Masters |
+| Java | *Head First Java* (3rd ed.) or *Core Java* (Horstmann); dev.java | *Effective Java* (Bloch); Spring guides; Baeldung |
+| C# | Microsoft Learn C# path; *C# in Depth* (Skeet) | *Pro ASP.NET Core*; Nick Chapsas / Tim Corey videos |
+| Go | *A Tour of Go*; *Go by Example*; *Learning Go* (Bodner) | *100 Go Mistakes*; Effective Go; the standard library source |
+| Rust | *The Rust Programming Language* ("the Book"); Rustlings; *Rust by Example* | *Programming Rust* (Blandy); *Rust for Rustaceans* (Gjengset); Zero To Production |
+| C | *C Programming: A Modern Approach* (King) or *Effective C* (Seacord); *Beej's Guides* | *Computer Systems: A Programmer's Perspective*; *Expert C Programming* |
+| C++ | *A Tour of C++* (Stroustrup, 3rd ed.); learncpp.com | *Effective Modern C++*; C++ Core Guidelines; CppCon talks |
+| Kotlin | Kotlin docs + Koans; *Kotlin in Action* (2nd ed.) | Android Developers courses; KotlinConf talks |
+| Swift | *The Swift Programming Language* (Apple); Hacking with Swift (Hudson) | *Swift Concurrency*; WWDC sessions; Point-Free |
+| SQL | *SQL for Data Scientists*; sqlbolt.com; pgexercises.com | *Designing Data-Intensive Applications* (Kleppmann) for context; *SQL Performance Explained* |
+| Bash | *The Linux Command Line* (Shotts); Bash Guide (mywiki.wooledge.org) | shellcheck everything |
+| Elixir | *Programming Elixir* (Thomas); Elixir School; Exercism | *Designing Elixir Systems with OTP*; Phoenix LiveView docs |
+| Haskell | *Learn You a Haskell*; *Haskell Programming from First Principles*; *Programming in Haskell* (Hutton) | *Parallel and Concurrent Programming in Haskell* |
+| OCaml | *OCaml Programming: Correct + Efficient + Beautiful* (Cornell CS3110); *Real World OCaml* | Jane Street tech blog |
+| Lisp/Scheme | *How to Design Programs* (Racket); *SICP*; *Clojure for the Brave and True* | *The Little Schemer* |
+| Zig | ziglang.org docs; Ziglings; zig.guide | Read TigerBeetle/Ghostty source |
+| Julia | *Think Julia*; official docs; MIT 18.S191 (Computational Thinking) | SciML tutorials |
+| Anything | *Crafting Interpreters* (Nystrom) — build a language, understand all languages | Advent of Code; exercism.org; Project Euler; The Odin Project (web) |
+
+### 7.4 Time budgets that are honest
+
+| Milestone | Full-time (40h/wk) | Serious part-time (15h/wk) | Casual (5h/wk) |
+|---|---|---|---|
+| Hello world → first useful script | 1 week | 2–3 weeks | 2 months |
+| First deployed project | 1 month | 2–3 months | 6–9 months |
+| Job-ready in a mainstream stack (from zero) | 4–6 months | 9–15 months | 3+ years |
+| Comfortable in a second language | 2–4 weeks | 1–3 months | 6 months |
+| Senior-level judgment | 3–5 years of shipping, regardless of hours | | |
+
+---
+
+## Part VIII — Anti-recommendations
+
+Blunt advice about what *not* to do, because it's as useful as the positive advice and rarer.
+
+### 8.1 Don't learn these as your *first* language (in 2026)
+
+| Language | Why not first | When it becomes right |
+|---|---|---|
+| **Rust** | Ownership and lifetimes are hard without knowing *why* they exist; you'll fight the compiler without understanding the problem it's solving. Junior Rust jobs are rare. | Second or third language, after C or after a GC'd language. |
+| **C++** | The largest, most footgun-laden mainstream language; forty years of idioms coexist; error messages are hostile. | When your domain (games, HFT, engines) requires it, ideally after C. |
+| **Haskell / OCaml / Clojure / Elixir** | Wonderful for insight, poor for first-job hunting; small hiring pools; mental overhead before you've internalized basic programming. | Second-plus, for enlightenment or a specific employer. |
+| **Zig, Nim, Odin, Gleam, Mojo, Carbon** | Pre-1.0 or tiny ecosystems; poor AI-assistant support; few jobs; APIs change under you. | Hobby or when your specific project needs them. |
+| **Dart** | Only useful for Flutter; if you don't yet know you want Flutter, it's a dead end. | After deciding on Flutter. |
+| **Scala** | Shrinking market; complexity; Kotlin and Python took its niches. | If hired into it. |
+| **Ruby** | Excellent language, shrinking new-project share; risky for a 2026 job hunt outside specific hubs. | As a second language for a web dev targeting a known Rails employer or founding a startup. |
+| **PHP** *(conditional)* | Fine as a first language if you're targeting agencies/WordPress/freelance. Not first if you're targeting startups, big tech, or data. | Depends entirely on your target market. |
+| **COBOL** | You'd be optimizing for a myth; the real market is steady and pays fine but requires mainframe context you won't have. | Mid-career, deliberately, for stability. |
+| **Solidity** | Domain-specific, sector-volatile, security-critical (mistakes lose real money). | On top of TS + Rust, when you've decided on the sector. |
+| **Assembly** | Not a productive first language; teaches the machine but not programming. | Alongside C, for systems/security. |
+| **Java** *(mild)* | Perfectly fine and many CS programs start here. The mild caution: ceremony can obscure concepts for self-learners, and beginner material often teaches 2010-era Java. If self-teaching, Python or TypeScript first; if in a program that uses Java, it's fine. | — |
+
+### 8.2 Don't do these things
+
+- **Don't pick a language because of a salary chart.** (§2.3 — the chart measures seniority, not syntax.)
+- **Don't pick a language because a YouTuber said it's "dying" or "the future."** Check the job boards in your city and the indices in Part II.
+- **Don't learn JavaScript without TypeScript** in 2026. You'll have to relearn habits.
+- **Don't skip SQL** because it's "not a real language." It's in more job postings than almost anything else.
+- **Don't learn a framework before the language.** React before JavaScript, Django before Python, Spring before Java — this produces people who can't debug.
+- **Don't learn five languages shallowly** before getting one job. Depth is what hires in 2026.
+- **Don't let AI write your first 10,000 lines.** You'll be unemployable at the exact moment you need to demonstrate competence.
+- **Don't ignore your local market.** If every job in your city is Java and C#, the global TypeScript trend is less relevant than you think. Remote work loosens this, but juniors are hired locally more than seniors.
+- **Don't wait for the perfect choice.** The cost of a suboptimal first language is weeks. The cost of not starting is years.
+
+### 8.3 Languages this guide is deliberately lukewarm about, and why
+
+- **Zig:** admired, elegant, and — per its own maintainers — not stable for serious work. Bun's departure (Jul 2026) and 0.16's breaking I/O rewrite illustrate the risk. A superb thing to *learn from*; a poor thing to *bet on* right now. Revisit at 1.0.
+- **Scala:** a technically excellent language whose market shrank as Spark went Python/SQL and Kotlin took the JVM-modernization slot. Not dead; not growing.
+- **Dart:** Flutter is healthy, but a language with exactly one use is a real cost in a world where TypeScript, Kotlin, and Swift each cover mobile *and* other things.
+- **Ruby:** the productivity is real and the senior salaries are good, but left the TIOBE top 20 in 2026 and few new companies start in it. A niche, not a foundation.
+- **COBOL:** the shortage narrative is overstated; the pay is fine; the work is stable modernization, not a goldmine.
+- **MATLAB:** losing to Julia and Python; entrenched only where institutional inertia keeps it.
+- **Visual Basic:** TIOBE #7 by search volume, essentially zero new development.
+- **Carbon:** still explicitly experimental after four years; Google's own guidance says to use Rust if you can.
+
+---
