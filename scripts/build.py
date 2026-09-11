@@ -30,9 +30,8 @@ def slugify(text: str) -> str:
     """GitHub-style heading slug so the guide's own TOC links keep working."""
     text = re.sub(r"<[^>]+>", "", text)
     text = text.strip().lower()
-    text = re.sub(r"[^\w\s\u00A7-]", "", text)  # keep letters, digits, _, space, hyphen, §
-    text = text.replace("§", "")
-    text = re.sub(r"\s+", "-", text.strip())
+    text = re.sub(r"[^\w\s-]", "", text)  # drop punctuation (incl. § and —), keep letters/digits/_/space/hyphen
+    text = text.replace(" ", "-")  # GitHub does NOT collapse runs of hyphens
     return text or "section"
 
 
