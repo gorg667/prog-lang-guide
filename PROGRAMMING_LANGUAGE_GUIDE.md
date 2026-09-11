@@ -683,3 +683,163 @@ These will not get you a job directly (usually). They will make you a dramatical
 | **Assembly** | What the machine really does. Pick RISC-V (cleanest) or x86-64 (most useful). |
 
 ---
+
+## Part IV — Language profiles
+
+One profile per language a reader might realistically be deciding about. Same fields for each so you can compare. Data points are from Part II sources unless noted.
+
+### 4.1 Python
+
+- **What it is:** Dynamically typed, interpreted, multi-paradigm, famously readable. 1991, Guido van Rossum; governed by the PSF and a Steering Council. Current 3.14 (Oct 2025); 3.15 due Oct 2026.
+- **Dominates:** data science, ML/AI, scripting/automation, scientific computing, education, backend APIs (FastAPI/Django), DevOps glue.
+- **2026 status:** #1 on TIOBE (17.8%; down from a 27% peak as AI disrupted search-based metrics), IEEE (both rankings), and JetBrains (35% primary). #2 on GitHub (2.6M contributors, +48.8%). SO usage +7 pts YoY — the largest jump in a decade. Free-threaded (no-GIL) build officially supported since 3.14; ecosystem compatibility still catching up. `uv` (Rust-based) is now the de-facto package manager.
+- **Strengths:** shallowest learning curve of any mainstream language; largest library ecosystem for data/AI; best AI-assistant support of any language (huge corpus); superb glue.
+- **Weaknesses:** slow for CPU-bound work (mitigated by NumPy/Polars/Numba/Rust extensions and free-threading); dynamic typing hurts at scale (use type hints + pyright); awkward for browsers/mobile.
+- **Salary (US median, experienced):** ~$120–135k; ML engineers far higher.
+- **Time to productivity:** 2–4 weeks for scripts; 3–6 months for professional backend work.
+- **Learn it if:** you're a beginner without a specific goal; you want data/AI/automation; you're a scientist, analyst, or non-programmer who needs to code.
+- **Skip it if:** your sole goal is frontend web, iOS/Android, game engines, or firmware.
+- **Pairs with:** SQL (mandatory), TypeScript (web), Rust/C++ (performance), Bash.
+- **Verdict:** the best first language for most people and the single most useful language in 2026.
+
+### 4.2 JavaScript
+
+- **What it is:** The browser's language (1995, Brendan Eich); dynamic, prototype-based, event-driven; standardized as ECMAScript with annual releases. Server-side via Node.js, Bun, Deno.
+- **2026 status:** still #1 in SO usage (66%) but growth has moved to TypeScript; IEEE dropped it from #3 to #6. Every serious JS codebase is becoming a TS codebase.
+- **Strengths:** runs everywhere; npm is the largest package ecosystem; async model fits I/O; instant visual feedback for learners.
+- **Weaknesses:** infamous quirks (`==`, `this`, coercion); dynamic typing at scale; ecosystem churn; competing runtimes and bundlers.
+- **Verdict:** required knowledge if you touch the web — but learn it *through* TypeScript.
+
+### 4.3 TypeScript
+
+- **What it is:** Microsoft's statically typed superset of JavaScript (2012, Anders Hejlsberg); strips to JS. The compiler was ported to Go in 2025–26 for ~10× speed.
+- **Dominates:** web frontend, Node backends, full-stack frameworks (Next.js, SvelteKit, Nuxt), React Native, Electron/Tauri, VS Code extensions, AI-product frontends, MCP servers.
+- **2026 status:** **#1 language on GitHub** by contributors since Aug 2025 (+1.05M, +66.6% YoY); #4 primary in JetBrains (22%) and the "most dramatic" migration winner. GitHub attributes part of the rise to AI: types make agent-generated code verifiable. Bun (Anthropic-owned since Dec 2025, now Rust-based) and Deno compete with Node; Node remains default.
+- **Strengths:** one language across the stack; best-in-class tooling; expressive structural typing; enormous job market; gradual adoption.
+- **Weaknesses:** deliberately unsound type system (escape hatches); build-step complexity; runtime is still JavaScript; framework churn; type-golf can become a time sink.
+- **Salary:** ~$125–140k US median.
+- **Time to productivity:** if you know JS, days; from zero, 2–3 months to a first deployed app.
+- **Learn it if:** you want the most job openings for one language; web apps; AI product UIs; React Native.
+- **Verdict:** the most employable single language of 2026 and the default for anything with a UI.
+
+### 4.4 Java
+
+- **What it is:** Statically typed, GC'd, JVM OOP language (1995). Six-month cadence; LTS every two years — **JDK 25 LTS (Sep 2025)**; JDK 27 Sep 2026.
+- **Dominates:** enterprise backends (Spring Boot), banking/insurance/telecom, legacy Android, big-data infrastructure (Kafka, Elasticsearch, Cassandra, Flink), exchanges.
+- **2026 status:** #4 TIOBE, #4 GitHub (+20.7%), #2 JetBrains primary (33%), top-3 IEEE Jobs. Modern Java (records, sealed types, pattern matching, virtual threads, compact source files) is a far better language than its 2010 reputation.
+- **Strengths:** vast job market everywhere on Earth; mature tooling and ops knowledge; excellent JVM performance; backward compatibility; Spring covers everything.
+- **Weaknesses:** verbose (improving); startup/memory footprint (GraalVM native image helps); ceremony-heavy culture; Oracle licensing anxiety (use Temurin/Corretto).
+- **Salary:** ~$115–135k US median.
+- **Learn it if:** you want a stable, well-paid job at a large organization in any country; JVM data infrastructure; your CS program teaches it.
+- **Skip it if:** you're a solo founder or early startup (TS/Python/Go iterate faster); frontend or data science.
+- **Verdict:** the safest career language on the planet; boring is a feature.
+
+### 4.5 C#
+
+- **What it is:** Microsoft's typed, GC'd, multi-paradigm language (2000). .NET is open-source and cross-platform. **.NET 10 LTS + C# 14 (Nov 2025)**, supported to Nov 2028.
+- **Dominates:** Windows desktop, enterprise backends in Microsoft shops, Unity games, Azure, healthcare/government IT; strong in Godot and MAUI.
+- **2026 status:** **TIOBE Language of the Year 2025** (+2.94 pts). #5 TIOBE, #5 GitHub (+22.2%). C# 14 extension members; .NET 10 file-based apps (`dotnet run app.cs`). ASP.NET Core is among the fastest mainstream web frameworks.
+- **Strengths:** arguably the best-designed mainstream OOP language (LINQ, async/await pioneered here, records, patterns, nullable reference types); superb tooling; one language from web to desktop to games to cloud.
+- **Weaknesses:** lingering "Microsoft-only" perception; smaller startup/OSS mindshare than TS/Python; MAUI less polished than competitors.
+- **Salary:** ~$115–135k US median.
+- **Learn it if:** game development (Unity/Godot) with a transferable skill; Microsoft-centric enterprise; you want a very well-designed typed backend language.
+- **Verdict:** the most under-rated mainstream language.
+
+### 4.6 Go
+
+- **What it is:** Google's typed, GC'd, compiled minimalist language (2009). Goroutines/channels; single static binaries. **Go 1.26 (Feb 2026)** made the Green Tea GC default (10–40% less GC overhead).
+- **Dominates:** cloud-native infrastructure (Docker, Kubernetes, Terraform, Prometheus, etcd, Vault, Argo, Helm), CLIs, network services, DevOps tooling, some backends (Uber, Cloudflare), Ollama.
+- **2026 status:** **#1 "want to adopt" (JetBrains, 11%)**; top-10 GitHub; ~$147k US median in one 2026 aggregate — among the highest for a mainstream language.
+- **Strengths:** learnable in a week if you know any C-family language; fast compile; trivial deploy; excellent stdlib; first-class concurrency; codebases look alike, which is great for teams.
+- **Weaknesses:** deliberately limited expressiveness (modest generics, no sum types, `if err != nil`); GC unsuitable for hard real-time; weaker domain modeling than Rust/Kotlin/C#.
+- **Learn it if:** DevOps/platform/cloud/SRE; servers, CLIs, infra tooling; you want a fast, simple compiled language.
+- **Skip it if:** it's your first language *and* you want web UI or data science — start with TS or Python, add Go later.
+- **Verdict:** the best second language for backend and infrastructure people.
+
+### 4.7 Rust
+
+- **What it is:** Mozilla-born (1.0 in 2015), now Rust Foundation. Compiled, no GC, memory-safe via ownership/borrowing. Six-week releases; 2024 edition current.
+- **Dominates:** new systems software, developer tooling (uv, ruff, Zed, Turbopack, SWC, Biome, Deno core, Tauri), browser components, cloud infra (Firecracker, parts of AWS/Cloudflare/Azure), embedded (growing), Wasm, blockchain (Solana, Polkadot), data tools (Polars, DataFusion, Arrow).
+- **2026 status:** **first-ever TIOBE top 10 (#10, Jul–Sep 2026)**. Most admired language 10 years running (72%). #2 "want to adopt" (10%). 48.8% of surveyed orgs use it non-trivially (State of Rust 2025; 38.7% in 2023). In the Linux and Windows kernels; Android's preferred native language; US government memory-safety guidance; Bun migrated from Zig to Rust (Jul 2026). The project's own Mar 2026 report names complexity, learning curve, compile times, and async as the top challenges.
+- **Strengths:** C++-class performance with compile-time memory and thread safety; Cargo (most-admired build tool, 71%); best-in-class error messages; growing, well-paid market; LLMs have dramatically flattened the curve.
+- **Weaknesses:** steep learning curve (ownership, lifetimes, traits, async); slow compiles; thin hiring pool ("Rust developers are still hard to find" — Welsh, Mar 2026); slower feature velocity than GC'd languages; GUI ecosystem gaps.
+- **Salary:** ~$140–155k US median.
+- **Time to productivity:** 2–4 months to comfortable; 6–12 to fluent.
+- **Learn it if:** systems programming, dev tooling, performance-critical services, safe embedded, Wasm, blockchain; or you know one language and want to become much better.
+- **Skip it if:** it would be your first language; you're at an early-stage startup where iteration speed is everything; you need many junior openings *now*.
+- **Verdict:** the most important language of the decade for systems work and the best "second-plus" language; not a first language.
+
+### 4.8 C
+
+- **What it is:** The 1972 systems language everything is built on. C23 current; GCC 15 defaults to it.
+- **Dominates:** OS kernels, embedded/firmware (nearly universal), language runtimes (CPython), databases (SQLite, PostgreSQL), networking stacks, every FFI boundary.
+- **2026 status:** TIOBE #2 (10.3%). Not growing, not going anywhere. Pressure from Rust for *new* code; utterly entrenched in existing code and embedded.
+- **Strengths:** tiny language, learnable in weeks; maps directly to hardware; ultimate portability; teaches how computers actually work.
+- **Weaknesses:** no memory safety (~70% of serious vulnerabilities in large codebases); undefined behavior; minimal stdlib.
+- **Verdict:** learn to *read* it no matter what; learn to *write* it for embedded, systems, and security.
+
+### 4.9 C++
+
+- **What it is:** C with classes, templates, and forty years of power (1985). ISO standard every three years — **C++26 technically finalized Mar 2026** (static reflection, contracts, `std::execution`, hardened standard library, SIMD).
+- **Dominates:** game engines (Unreal, every AAA engine), browsers, compilers (LLVM, GCC), HFT, HPC/simulation, databases, CAD/graphics/VFX, larger embedded, automotive, CUDA, ML inference engines (llama.cpp, TensorRT), audio.
+- **2026 status:** TIOBE #3 (8.7%), top-5 IEEE, #8 GitHub. Enormous stable job market. Strategic pressure: government memory-safety guidance; WG21 rejected "Safe C++" (borrow checker) in favor of "Profiles" (criticized as unimplemented); Herb Sutter stepped down as convenor. Industry adoption lags standards by 3–5 years.
+- **Strengths:** maximum performance with high-level abstractions; the incumbents are written in it; C++20/23/26 is far more pleasant than C++98.
+- **Weaknesses:** the largest, most complex mainstream language; legacy idioms coexist with modern ones; memory unsafety; slow compiles; no standard package manager.
+- **Salary:** ~$125–150k US median; HFT far higher.
+- **Learn it if:** AAA games, engines, graphics, HFT, HPC, compilers, browsers, automotive.
+- **Verdict:** still essential where it's essential; no longer the default for new systems code.
+
+### 4.10 Kotlin
+
+- **What it is:** JetBrains' typed JVM language (1.0 in 2016) with null safety, coroutines, concise syntax; compiles to JVM, JS, Wasm, native (KMP). Current 2.3 (Dec 2025).
+- **Dominates:** Android (Google-recommended; Jetpack Compose is Kotlin-only); growing in JVM backends (Spring, Ktor) and cross-platform (Compose Multiplatform iOS stable since May 2025).
+- **2026 status:** #4 "want to adopt" (6%). Google I/O 2026 reaffirmed Kotlin-first and added Kotlin generation in AI Studio. KMP is the fastest-growing cross-platform option.
+- **Strengths:** Java's ecosystem with far less ceremony; seamless interop; excellent coroutines; credible multiplatform story.
+- **Weaknesses:** compile times; smaller non-Android market than Java; KMP tooling still maturing.
+- **Verdict:** the Android language and a top-tier JVM language; the natural upgrade for Java developers.
+
+### 4.11 Swift
+
+- **What it is:** Apple's typed, compiled language (2014) with value semantics, optionals, protocols, structured concurrency. **Swift 6.3 (Mar 2026)** added an official Android SDK; 6.2 made strict concurrency approachable.
+- **Dominates:** iOS, macOS, watchOS, visionOS. SwiftUI is the future; UIKit/AppKit remain in every real codebase.
+- **Strengths:** modern, safe, fast; lucrative platform for indies.
+- **Weaknesses:** effectively single-vendor; Xcode is the only real IDE; requires a Mac; strict-concurrency migration was painful; smaller market than Kotlin outside the US/Western Europe.
+- **Salary:** ~$130–145k US median.
+- **Verdict:** mandatory for Apple platforms; not a general-purpose choice.
+
+### 4.12 Dart
+
+- **What it is:** Google's typed, GC'd language (2011) that found its purpose as Flutter's language.
+- **2026 status:** Flutter is healthy — Impeller default renderer, Wasm web target, quarterly stable releases (3.44 May 2026), ~35% of cross-platform mobile, embedded wins (Toyota, LG). Dart has essentially zero use outside Flutter.
+- **Weaknesses:** every hour learning Dart is an hour not learning TS/Kotlin/Swift; dependency on Google's continued investment.
+- **Verdict:** a means to Flutter, not an end. Learn it only after choosing Flutter.
+
+### 4.13 PHP
+
+- **What it is:** The server-side web language (1995). Modern PHP (8.x; **8.5 Nov 2025**) has types, JIT, fibers, enums — a different language from PHP 5.
+- **Dominates:** WordPress/WooCommerce (~43% of all websites), Laravel (64% of PHP devs), Symfony, Drupal, Magento; small-business and agency web.
+- **2026 status:** TIOBE ~#13, #6 GitHub. Deployment share stable; new-project mindshare slowly declining. Very large market in agencies, e-commerce, Europe/LATAM/South Asia.
+- **Strengths:** deployable anywhere; Laravel is one of the best web frameworks in any language; endless maintenance work; low barrier to freelancing.
+- **Weaknesses:** reputation lag; lower average pay than TS/Python; WordPress work can be low-margin.
+- **Salary:** ~$95–120k US median; high variance.
+- **Verdict:** pragmatic, employable, unglamorous; Laravel makes it genuinely enjoyable.
+
+### 4.14 Ruby
+
+- **What it is:** Dynamic, elegant "programmer happiness" language (1995). Rails 8 (Nov 2024) emphasizes deploying without PaaS; Ruby 3.4+ has YJIT.
+- **2026 status:** left the TIOBE top 20 in 2026. Shopify, GitHub, Stripe and many startups still run large Rails apps and pay well; few new companies start in Ruby.
+- **Strengths:** unmatched ergonomics for CRUD apps; a solo founder ships fastest in Rails; well-paid senior market.
+- **Weaknesses:** shrinking new-project share; market concentrated in specific companies/cities; risky as a *first* job-hunting language.
+- **Verdict:** excellent language in a slowly shrinking market; a second-language niche, not a first.
+
+### 4.15 SQL
+
+- **2026 status:** #3 in SO usage (58.6%), top-3 in every jobs ranking, TIOBE #8. dbt made it the transformation language of modern data; DuckDB made it the standard for local analytics.
+- **What to learn:** SELECT/JOIN/GROUP BY → CTEs → window functions → indexes and EXPLAIN → transactions and isolation → one dialect deeply (PostgreSQL recommended).
+- **Verdict:** not optional for any programmer. Highest ROI per hour in this guide.
+
+### 4.16 Bash / Shell
+
+- **2026 status:** 48.7% of developers use shell. PowerShell on Windows; Nushell/Fish for interactive use, but write scripts in Bash for portability.
+- **What to learn:** pipes, redirection, quoting, conditionals/loops, `find`/`grep`/`sed`/`awk`/`xargs`/`jq`, `set -euo pipefail`, shellcheck. Switch to Python past ~100 lines.
+- **Verdict:** a required tool, not a career.
