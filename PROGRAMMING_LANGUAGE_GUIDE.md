@@ -948,3 +948,129 @@ Legacy or niche languages that appear on rankings (VB is TIOBE #7, Fortran #11, 
 | R | ★★★★ | ★★★ | ★★ | ★★★ | ★★ | ★★★★ | Possible (statisticians) | data analysts |
 
 ---
+
+## Part V — Roadmaps by learner profile
+
+Eight archetypes. Find the closest match; adjust the domain choice using Part III. Timelines assume ~10–15 focused hours per week; halve them for full-time study, double them for "an hour when I can."
+
+### 5.1 The absolute beginner with no specific goal
+
+**Goal:** discover whether you like programming and what kind, while building a foundation that transfers anywhere.
+
+| Phase | Duration | Learn | Build |
+|---|---|---|---|
+| 1 | Weeks 1–6 | **Python** basics: variables, control flow, functions, lists/dicts, files, errors. Use an AI assistant to *explain*, not to *write*. | A CLI tool you actually want: expense tracker, flashcard quizzer, file organizer. |
+| 2 | Weeks 7–12 | Modules, virtual environments (uv), `requests`/`httpx`, JSON, a tiny web app (Flask or FastAPI), **Git** and GitHub. | A web app that calls a public API and stores results in SQLite. |
+| 3 | Months 4–5 | **SQL** basics; testing (pytest); reading other people's code; debugging with a real debugger. | Contribute a documentation fix or small bug fix to an open-source project. |
+| 4 | Month 6 | Sample the domains: one weekend each of (a) TypeScript + a tiny React page, (b) a Pygame or Godot mini-game, (c) a pandas/Polars notebook on a dataset you care about, (d) a Bash script that automates something. | Pick the domain that made you lose track of time. Go to its Part III section. |
+
+**Why Python first:** gentlest syntax, best beginner material, best AI-tutor support, useful in the most domains. **Why not JavaScript first:** the browser is a great motivator, but JS's quirks and the tooling maze (bundlers, frameworks, TS config) confuse beginners; come to TS in month 6 with concepts already in hand. **Exception:** if you *know* you want to build websites, start with TypeScript (5.3).
+
+### 5.2 The career switcher (6–12 months to a first job)
+
+**Goal:** employment in the largest possible market, as fast as possible, with a portfolio that survives a 2026 junior market.
+
+**Path A — Web (largest market):**
+
+| Phase | Duration | Learn | Build / prove |
+|---|---|---|---|
+| 1 | Months 1–2 | HTML/CSS, **JavaScript fundamentals through TypeScript**, Git. | Three static sites, one with real interactivity. |
+| 2 | Months 3–4 | **React** (or Vue/Svelte if the local market prefers), TanStack Query, Tailwind, Vitest. | A CRUD app against a public API, deployed. |
+| 3 | Months 5–6 | **Node/Bun backend** (Hono/Fastify/Next.js API), **PostgreSQL + SQL**, auth, Docker, one cloud deploy. | Full-stack app with users, deployed, with tests and CI. |
+| 4 | Months 7–9 | Testing depth, accessibility, performance, security basics (OWASP), one "second stack" taste (Python/FastAPI). Open-source contributions. | Two more substantial projects; a merged OSS PR; a blog post or two explaining something you learned. |
+| 5 | Months 9–12 | Interview prep: DSA basics in TS (arrays, hash maps, trees, BFS/DFS), system-design basics, behavioral. | Apply widely; target junior/associate, apprenticeships, and adjacent roles (QA automation, support engineering). |
+
+**Path B — Data/AI-adjacent (second-largest, strong for people with domain expertise in finance/health/marketing/ops):**
+Python → SQL (deep) → pandas/Polars → statistics → visualization/BI → one cloud warehouse → FastAPI + a small ML or LLM project → dbt/Airflow basics. Roles: data analyst → analytics engineer → data engineer or ML engineer. Your prior domain expertise is the differentiator.
+
+**Path C — Enterprise (stable, global, less startup-flavored):**
+Java (or C#) → SQL → Spring Boot (or ASP.NET Core) → testing → Docker → one cloud → Kotlin taste. Roles: junior backend developer at consultancies, banks, insurers, government contractors. More structured hiring, more certifications, more predictable.
+
+**Rules for switchers in 2026:**
+- One stack, deep. Recruiters and hiring managers screen for *evidence of shipping*, not language count.
+- Deploy everything. A URL beats a repo.
+- Use AI to move faster, but be able to explain every line in an interview.
+- Network locally; the junior market is relationship-driven now.
+- Consider the adjacent on-ramps (§2.5). QA automation and analytics engineering hire juniors more readily than "software engineer I."
+
+### 5.3 The student (CS or adjacent degree)
+
+Your program will pick your first language (Python, Java, or C). Fine — the course matters more than the language. Use your degree's time to do what switchers can't afford:
+
+1. **Go deep on fundamentals:** data structures, algorithms, OS, networks, databases, compilers, distributed systems. These are the skills that supervise AI.
+2. **Learn C properly** (if your program doesn't force it) and **one functional language** (OCaml, Haskell, or Racket). These are cheap to learn now and expensive later.
+3. **Pick one industrial language and get employable in it** before internship season: TypeScript or Python for most; Java/C# for enterprise-heavy regions; C++ for games/HFT/systems.
+4. **Learn Rust in your third or fourth year** if you're at all systems-inclined. It's the language most likely to be *asked about* in the next decade that your program probably won't teach.
+5. **Ship something every semester.** Internships are the on-ramp that still works; portfolio projects get them.
+
+### 5.4 The working developer adding a second (or third) language
+
+You know one language well. Which next? Use this table — rows are what you know, columns are what you want.
+
+| You know → want | Web UI | Backend/infra | Data/AI | Systems | Mobile | Games | "Level up my thinking" |
+|---|---|---|---|---|---|---|---|
+| **Python** | TypeScript | Go | (SQL deeper, Rust for perf) | Rust | Kotlin or Swift | C# | OCaml or Haskell |
+| **JavaScript/TS** | — | Go or Python | Python | Rust | Kotlin/Swift (or stay TS w/ RN) | C# | Elixir or Haskell |
+| **Java** | TypeScript | Kotlin or Go | Python | Rust or C++ | Kotlin | C# or C++ | Clojure or Scala |
+| **C#** | TypeScript | Go | Python | Rust or C++ | Kotlin/Swift (or MAUI) | C++ (Unreal) | F# |
+| **C / C++** | TypeScript | Go or Rust | Python | Rust | Kotlin/Swift | (you're set) | Rust or OCaml |
+| **Go** | TypeScript | Rust | Python | Rust or C | Kotlin/Swift | C# | Elixir or OCaml |
+| **Rust** | TypeScript | Go | Python | (C/C++ to read) | Kotlin/Swift | C++ | Haskell or Lean |
+| **PHP / Ruby** | TypeScript | Go or Python | Python | Rust | Kotlin/Swift | C# | Elixir |
+| **Kotlin / Swift** | TypeScript | Go | Python | Rust | (the other one) | C# | Haskell |
+
+**Pattern:** TypeScript for anything with a UI; Go for backend/infra; Python for data/AI; Rust for systems; Kotlin/Swift for native mobile; C# for games. The "level up" column is where the FP languages live.
+
+### 5.5 The scientist, analyst, or domain expert who needs to code
+
+**Goal:** use programming as a tool for your actual work — not to become a software engineer.
+
+- **Start:** Python (or R if your field runs on it — biostatistics, epidemiology, ecology, social science). Jupyter/Quarto notebooks. Polars or pandas. Plotting.
+- **Add quickly:** **SQL** (you will spend more time with data than with algorithms). Git (for reproducibility). uv/conda for environments.
+- **Add later:** a bit of Bash (HPC clusters), a cloud console, one visualization tool (Streamlit/Shiny/Dash), and AI-assistant fluency (you are the ideal user — you know what the answer should look like).
+- **Only if needed:** Julia (new simulation code), C++/Fortran (modifying legacy codes), MATLAB (if mandated).
+- **Don't bother with:** frontend frameworks, mobile, systems languages.
+
+### 5.6 The kid or teen (and the parent choosing for them)
+
+| Age | Path | Why it works |
+|---|---|---|
+| 6–9 | ScratchJr → **Scratch** | Visual, immediate, creative; no syntax errors. |
+| 9–12 | Scratch → **Python** (via Turtle, then simple games) or **Roblox Luau** if they already play Roblox; **MakeCode** with a micro:bit for hardware fun | Text programming with immediate payoff; motivation from things they already love. |
+| 12–15 | **Python** (Pygame, Discord bots, automation), **JavaScript** (p5.js creative coding, small web games), **Luau** (Roblox — some teens earn real money), **Godot/GDScript** | Projects they can show friends. |
+| 15–18 | Whatever they want to build: **TypeScript** (websites), **C#** (Unity), **Python** (AI/data), **Java** (AP CS A — the exam matters for US college credit), **C++** (competitive programming/USACO) | Align with college plans and interests; competitive programming is a legitimate path to strong fundamentals. |
+
+**Principles:** motivation over curriculum; finished small projects over unfinished big ones; pair programming with an adult who is *also* learning beats a lecturing adult; AI tutors are excellent but supervise — kids will paste.
+
+### 5.7 The senior engineer or lead choosing a stack for a team
+
+Different question: *what should we build this in?* The five axes shift toward hiring pool, longevity, and operational maturity.
+
+| Situation | Default | Notes |
+|---|---|---|
+| Early-stage startup, web product | **TypeScript** end-to-end (Next.js/SvelteKit + Postgres) | Largest hiring pool, fastest iteration, one language. Python backend if the product is AI/data-heavy. |
+| Early-stage startup, AI/ML product | **Python** (FastAPI) + **TypeScript** frontend | The AI stack is Python; keep the UI in TS. |
+| Infrastructure / platform / high-throughput services | **Go** | Simple, fast, huge ecosystem, easy to hire and onboard. Rust for the specific hot paths or where correctness is existential. |
+| Performance-critical or safety-critical systems | **Rust** (new) / **C++** (existing ecosystem) | Welsh's 2026 caution still applies: Rust slows early iteration; adopt when robustness > velocity, or when the domain (embedded, security, infra) demands it. |
+| Enterprise line-of-business | **Java** (Spring Boot) or **C#** (ASP.NET Core) | Depends on the org's existing platform. Kotlin as the incremental modernization for Java shops. |
+| Mobile | Native (**Swift** + **Kotlin**) for consumer apps where quality is the product; **React Native** if the team is web; **Flutter** for a small team needing identical UIs everywhere; **KMP** for an Android-first team | Don't choose cross-platform to save money if the app *is* the business. |
+| Data platform | **SQL** (dbt) + **Python** | Scala only if you inherit it. |
+| Games | **C#**/Unity or **C++**/Unreal by scope; **Godot** for small teams and 2D | — |
+| Internal tools | Whatever the team already knows; **Python** + Streamlit or **TypeScript** + Retool-style | Speed matters more than anything. |
+
+**Team-level rules:**
+- The best stack is the one your team can hire for and operate at 3 a.m.
+- Prefer boring technology for the 90%; spend your "innovation tokens" on the 10% that's your actual differentiator.
+- Typed languages pay off faster now that AI writes a share of the code — reviewers need the compiler's help.
+- Migration cost has fallen (AI-assisted rewrites are real), so the "we're locked in forever" fear is weaker than it was — but so is the excuse to pick something exotic.
+
+### 5.8 The hobbyist / lifelong learner
+
+You don't need a job from this; you want joy, insight, and things that work.
+
+- **For making things:** Python (anything), TypeScript (web things), Godot/GDScript or Lua/Love2D (games), MicroPython/Arduino C++ (hardware), Swift (if you love your Mac/iPhone).
+- **For insight:** Rust (ownership), Haskell or OCaml (types), Racket/Scheme via SICP (computation), Elixir (concurrency), Prolog (logic), Forth (minimalism), an APL-family language (arrays), Assembly (the machine), Zig (allocators and comptime).
+- **For fun communities:** Elixir, Rust, Zig, Gleam, Clojure, Nim, Odin — small, welcoming, intellectually lively.
+- **Pace:** one new language per year, each with a real project, is a wonderful decade-long curriculum. Advent of Code in December is the traditional way to try a new language.
+
+---
