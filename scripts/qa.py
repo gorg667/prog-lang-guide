@@ -64,10 +64,10 @@ def main() -> int:
                 if not page.evaluate("document.body.classList.contains('nav-open')"):
                     failures.append("[mobile] nav drawer did not open")
                 page.screenshot(path=str(OUT / "mobile-nav.png"))
-                page.click("#scrim")
+                page.mouse.click(vp[0] - 10, vp[1] // 2)  # tap scrim right of drawer
 
             page.goto(BASE + "/#39-machine-learning-ai-and-llm-applications", wait_until="load")
-            page.wait_for_timeout(600)
+            page.wait_for_timeout(1500)
             active = page.evaluate("document.querySelector('#toc a.active')?.dataset.target || ''")
             page.screenshot(path=str(OUT / f"{name}-section.png"))
 

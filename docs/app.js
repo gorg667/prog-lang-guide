@@ -83,6 +83,13 @@
     }, { rootMargin: '-60px 0px -70% 0px', threshold: 0 });
     headings.forEach((h) => io.observe(h));
   }
+  // Hash navigation should win immediately over the observer's heuristics.
+  const syncHash = () => {
+    const id = decodeURIComponent(location.hash.slice(1));
+    if (id && byId.has(id)) setActive(id);
+  };
+  window.addEventListener('hashchange', syncHash);
+  syncHash();
 
   /* ---------- Search ---------- */
   let index = [];

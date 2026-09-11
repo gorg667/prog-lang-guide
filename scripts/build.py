@@ -91,9 +91,9 @@ def render_markdown(md: str) -> str:
             ],
             output_format="html5",
         )
-    except ImportError:  # minimal fallback so the build never hard-fails
-        body = html.escape(md)
-        return f"<pre class='fallback'>{body}</pre>"
+    except ImportError:
+        print("ERROR: python-markdown missing. Run: pip install markdown", file=sys.stderr)
+        raise SystemExit(2)
 
 
 def build_sidebar(heads: list[dict]) -> str:
