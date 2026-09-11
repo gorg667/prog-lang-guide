@@ -321,3 +321,365 @@ This deserves its own section because it changes the advice.
 5. **Consider adjacent on-ramps:** QA automation (Python/TypeScript), data analysis (SQL/Python), IT/DevOps (Bash/Python/Go), technical writing, support engineering. Each has a lower entry bar and a path to software engineering.
 
 ---
+
+## Part III — Domain-by-domain: what to learn for what
+
+Each domain below follows the same structure: **the verdict**, **the stack you'll actually use**, **the runners-up and when they win**, **what to learn alongside the language**, and **a first project**. Ratings use the five axes from §1.4 (★ = weak, ★★★★★ = dominant) *for that domain*.
+
+### 3.1 Web frontend
+
+**Verdict: TypeScript. Non-negotiable.**
+
+The browser executes JavaScript (and WebAssembly). Every frontend framework — React, Vue, Svelte, Angular, Solid, Qwik — is written in and scaffolds in TypeScript. In 2025, TypeScript became the #1 language on GitHub by contributors, with +1.05M new contributors (+66% YoY). JavaScript-without-types is now a legacy skill; you learn JS *as the runtime semantics of TS*, not as a separate language.
+
+| Language | Domain fit | Jobs | Learnability | Notes |
+|---|---|---|---|---|
+| **TypeScript** | ★★★★★ | ★★★★★ | ★★★★ | The answer. |
+| JavaScript (plain) | ★★★★★ | ★★★★ | ★★★★ | You'll learn it implicitly. Required knowledge, not a separate choice. |
+| Dart (Flutter Web) | ★★ | ★★ | ★★★★ | Only if you're already a Flutter shop. Poor SEO, large bundles. |
+| Rust (Leptos/Yew/Dioxus via Wasm) | ★★ | ★ | ★★ | Niche. Wasm can't touch the DOM directly; excellent for compute-heavy widgets (Figma-style), not for typical apps. |
+| C# (Blazor) | ★★★ | ★★ | ★★★ | Viable inside .NET shops; .NET 10 improved Blazor Wasm preloading. Not a general choice. |
+| Elm / PureScript / ReScript / Gleam (Lustre) | ★★ | ★ | ★★★ | Beautiful, tiny job markets. Learn for enlightenment, not employment. |
+| Kotlin/JS, Scala.js, ClojureScript | ★★ | ★ | ★★ | Only if your team already lives in that language. |
+
+**The stack (2026):** TypeScript → React (still ~60%+ of frontend job postings) with Next.js or Vite + TanStack; or Vue/Nuxt (strong in Asia/Europe); or Svelte/SvelteKit (rising, beloved). CSS via Tailwind. State via TanStack Query + Zustand/Signals. Testing via Vitest + Playwright. Runtime: Node.js (default) or Bun (Anthropic-owned since Dec 2025; now Rust-based).
+
+**Learn alongside:** HTML semantics and accessibility (ARIA), CSS (Flexbox, Grid, container queries), HTTP and REST, browser DevTools, Git, a component library, basic design principles. Know how bundlers work (Vite/esbuild/Rolldown).
+
+**First project:** A personal dashboard that pulls from 2–3 public APIs, with client-side routing, a dark-mode toggle, and deployment on Vercel/Netlify/Cloudflare Pages.
+
+### 3.2 Web backend / APIs
+
+**Verdict: it depends on your context more than any other domain — but for most people, TypeScript (Node/Bun) or Python.**
+
+| Language | Domain fit | Jobs | Learnability | Perf | Best when |
+|---|---|---|---|---|---|
+| **TypeScript (Node/Bun/Deno)** | ★★★★★ | ★★★★★ | ★★★★ | ★★★ | You also do frontend (one language, shared types); startups; serverless/edge; real-time. Frameworks: Hono, Fastify, NestJS, Express, Next.js API routes, tRPC. |
+| **Python** | ★★★★★ | ★★★★★ | ★★★★★ | ★★ | Data/AI adjacent; rapid prototyping; teams with data scientists. FastAPI (+5 pts YoY, the modern default), Django (batteries-included, admin, ORM), Flask, Litestar. Free-threading (3.14+) is closing the concurrency gap. |
+| **Go** | ★★★★★ | ★★★★ | ★★★★ | ★★★★★ | Microservices, high-throughput APIs, cloud infra, anything that ships as a single binary. stdlib `net/http` + chi/echo/gin; sqlc; gRPC. |
+| **Java** | ★★★★★ | ★★★★★ | ★★★ | ★★★★ | Large enterprises, banking, telecom, anything needing 15-year support. Spring Boot dominates; Quarkus/Micronaut for cloud-native. JDK 25 LTS with virtual threads makes concurrency easy. |
+| **C#** | ★★★★★ | ★★★★ | ★★★★ | ★★★★★ | Microsoft-centric orgs, Azure, gaming backends, anything Windows. ASP.NET Core is one of the fastest mainstream frameworks (TechEmpower). .NET 10 LTS. |
+| **Kotlin** | ★★★★ | ★★★ | ★★★★ | ★★★★ | JVM shops wanting modern ergonomics; Android teams going full-stack. Spring Boot or Ktor. |
+| **Rust** | ★★★★ | ★★ | ★★ | ★★★★★ | Performance-critical services, proxies, anything where a crash costs money, teams that already know Rust. Axum/Actix. Slower to build features; excellent for the hot path. |
+| **PHP** | ★★★★ | ★★★★ | ★★★★★ | ★★★ | Agencies, WordPress/WooCommerce ecosystem, cheap hosting, small-business SaaS. Laravel is genuinely excellent (64% of PHP devs). PHP 8.5. |
+| **Ruby** | ★★★★ | ★★ | ★★★★★ | ★★ | Rails 8 for solo founders and small teams shipping fast; a well-paid niche (Shopify, GitHub, Stripe-adjacent). Shrinking new-project share. |
+| **Elixir** | ★★★★ | ★★ | ★★★ | ★★★★ | Real-time (chat, live dashboards, IoT fleets), fault tolerance, Phoenix LiveView (most-admired web framework 3 years running). Small but passionate, well-paid market. |
+| Scala / Clojure / F# / Haskell / OCaml | ★★★ | ★ | ★★ | ★★★★ | Specific shops (fintech, ad-tech, Jane Street-style). Not a first backend language. |
+
+**Decision rule:**
+- Solo dev or startup, also doing frontend → **TypeScript**.
+- Data/ML-adjacent, or you want the gentlest curve → **Python**.
+- Cloud infra / high throughput / you like simple languages → **Go**.
+- You want to work at a bank, insurer, government, or Fortune 500 → **Java** (or **C#** if Microsoft-centric).
+- Real-time or must-not-go-down → **Elixir** (or Go/Rust).
+
+**Learn alongside:** SQL and one relational DB (PostgreSQL — the default), HTTP semantics, REST and OpenAPI, auth (OAuth2/OIDC, JWT, sessions), caching (Redis, +8% usage in 2025), queues, Docker (+17 pts YoY — now near-universal), basic Linux, testing, observability (logs/metrics/traces), one cloud (AWS 43% share, then GCP and Azure at 22% each).
+
+**First project:** A REST + WebSocket API for a to-do/notes app with users, auth, Postgres, Redis caching, a Dockerfile, CI that runs tests, and deployment to Fly.io/Railway/Render.
+
+### 3.3 Full-stack web
+
+**Verdict: TypeScript end to end.** Next.js/Remix/SvelteKit/Nuxt/Astro + a TS backend (or the framework's own server functions) + Postgres via Drizzle/Prisma + Tailwind. One language, shared types, one package manager, one deploy. This is the single most employable stack for a generalist in 2026.
+
+**Alternative:** Python (Django or FastAPI) + HTMX/Alpine for server-rendered apps with minimal JS — a strong, underrated choice for solo builders and internal tools. Or **Rails 8** / **Laravel** / **Phoenix LiveView** for the "one framework does everything" experience.
+
+### 3.4 Mobile — iOS
+
+**Verdict: Swift.** SwiftUI is Apple's future; UIKit is the present you'll still need to read. Swift 6.2/6.3 made concurrency approachable and (6.3, Mar 2026) added official Android support — interesting for shared logic, not yet a reason to skip Kotlin.
+
+- **Objective-C:** learn to *read* it; large legacy codebases still exist. Don't write new code in it.
+- **Cross-platform alternatives:** see 3.6.
+
+**Learn alongside:** Xcode, SwiftUI + UIKit interop, Combine/async-await, Core Data/SwiftData, App Store process, HIG, TestFlight, Instruments profiling.
+
+### 3.5 Mobile — Android
+
+**Verdict: Kotlin.** Google's recommended language since 2019; Jetpack Compose is Kotlin-only; Google I/O 2026 doubled down (Kotlin in AI Studio for app generation). Java is for maintaining older apps — you'll read plenty of it.
+
+**Learn alongside:** Android Studio, Compose, coroutines/Flow, Room, Hilt, Gradle (Kotlin DSL), Play Store process, Material 3.
+
+### 3.6 Mobile — cross-platform
+
+**Verdict: no single winner; choose by what you already know.**
+
+| Option | Language | Choose when | 2026 status |
+|---|---|---|---|
+| **React Native (Expo)** | TypeScript | You know React/web; you want max code sharing with a web app; large hiring pool | ~43% of cross-platform devs (one 2026 survey). New Architecture default; Expo is the standard. Expo is a top-10 GitHub project by contributors. |
+| **Flutter** | Dart | You want pixel-identical UIs on both platforms, strong animation, one team; desktop/embedded too | ~35%. Impeller renderer default (Skia removed on iOS); Wasm web target; quarterly stable train; used in Toyota RAV4 infotainment and LG webOS. Dart is only useful for Flutter — a real cost. |
+| **Kotlin Multiplatform (+ Compose Multiplatform)** | Kotlin | You're an Android team wanting to share logic (and optionally UI) with iOS while keeping native feel | Compose Multiplatform iOS stable since May 2025 (now 1.11); officially Google-supported for shared logic; fastest-growing option (from ~7%). Best for teams already in Kotlin. |
+| **.NET MAUI** | C# | You're a .NET shop | Viable, smaller community. |
+| **Swift (via Skip / Swift for Android)** | Swift | iOS-first team, curious | Official Android SDK as of Swift 6.3; early days. |
+
+**Decision rule:** Web developer → React Native. Designer-heavy consumer app, or you want one codebase for mobile + desktop + embedded → Flutter. Android team → KMP. Enterprise .NET → MAUI. **If you only ever want to build for one platform, go native (3.4/3.5).**
+
+### 3.7 Desktop applications
+
+**Verdict: pick by target OS; cross-platform means TypeScript (Electron/Tauri) in practice.**
+
+| Target | Language | Framework |
+|---|---|---|
+| Windows | **C#** | WinUI 3 / WPF / .NET MAUI; Avalonia for cross-platform |
+| macOS | **Swift** | SwiftUI / AppKit |
+| Linux | **C / C++ / Rust / Python** | GTK4 (C, with Python/Rust bindings), Qt (C++/Python) |
+| Cross-platform, web-tech UI | **TypeScript** | **Electron** (VS Code, Slack, Discord) or **Tauri** (Rust backend, smaller binaries; v2 stable) |
+| Cross-platform, native-feel | **C++** (Qt), **Dart** (Flutter), **Kotlin** (Compose Multiplatform), **C#** (Avalonia) | Qt 6.10 LTS; Flutter desktop is solid; Compose Desktop is mature |
+| Terminal UIs | **Go** (Bubble Tea), **Rust** (ratatui), **Python** (Textual) | The TUI renaissance is real |
+
+### 3.8 Data analysis & data science
+
+**Verdict: Python. SQL is mandatory alongside it. R if you're in academia/biostatistics.**
+
+| Language | Domain fit | Jobs | Notes |
+|---|---|---|---|
+| **Python** | ★★★★★ | ★★★★★ | pandas → **Polars** (Rust-based, the modern default for new work) → **DuckDB** (in-process SQL analytics, now standard for single-node), NumPy, scikit-learn, matplotlib/plotly, Jupyter (repos +75% YoY). uv for environments. |
+| **SQL** | ★★★★★ | ★★★★★ | 58.6% of all developers use it. You will write more SQL than Python in many analyst roles. Learn PostgreSQL dialect, window functions, CTEs; then a warehouse dialect (BigQuery/Snowflake/Databricks). |
+| **R** | ★★★★ | ★★★ | Tidyverse, ggplot2, RStudio/Positron, Shiny, Quarto. Dominant in biostatistics, epidemiology, social science, pharma (regulatory submissions), some finance. TIOBE #9. Learn *second* if your field uses it. |
+| **Julia** | ★★★ | ★ | Rising in scientific computing and simulation (TIOBE #21, taking MATLAB's share). Not a data-analyst job language yet. |
+| Scala | ★★ | ★★ | Legacy Spark. PySpark won. |
+| MATLAB | ★★ | ★★ | Entrenched in some engineering firms and courses; declining. Learn if your employer/school mandates it. |
+| SAS / Stata / SPSS | ★★ | ★★ | Legacy in pharma, government, social science. Learn on the job if required. |
+
+**Learn alongside:** statistics (seriously — regression, hypothesis testing, Bayesian basics), data visualization principles, Excel (still the lingua franca of business), a BI tool (Tableau/Power BI/Looker/Metabase), Git, dbt, a cloud warehouse.
+
+**First project:** Pull a public dataset (city open data, Kaggle), clean it with Polars, store it in DuckDB, answer five questions with SQL, chart them, and publish a Quarto/Jupyter report.
+
+### 3.9 Machine learning, AI, and LLM applications
+
+**Verdict: Python, overwhelmingly. TypeScript for AI product frontends. C++/CUDA/Triton/Mojo for the kernel layer.**
+
+Python's 2025 surge (+7 pts SO usage, +48.8% GitHub contributors) is the AI boom. Six of the ten fastest-growing GitHub projects in 2025 were AI infrastructure — vLLM, Ollama, llama.cpp, Transformers, SGLang, ComfyUI — and their user-facing layer is Python. Over 1.1M public repos use an LLM SDK.
+
+| Layer | Language | Tools |
+|---|---|---|
+| **Research / training** | **Python** | PyTorch (dominant), JAX (Google/DeepMind, TPUs), Hugging Face Transformers/Datasets/PEFT, Lightning, Weights & Biases |
+| **Inference / serving** | **Python** (orchestration) + **C++/CUDA** (engines) + **Rust** (new servers) | vLLM, SGLang, TensorRT-LLM, llama.cpp (C++), Ollama (Go), candle/mistral.rs (Rust) |
+| **LLM application layer ("AI engineering")** | **Python** or **TypeScript** | OpenAI/Anthropic SDKs, LangChain/LangGraph, LlamaIndex, Pydantic AI, Vercel AI SDK (TS), MCP servers (TS/Python), vector DBs |
+| **Kernels / GPU programming** | **C++ (CUDA)**, **Triton** (Python DSL), **Mojo** | CUDA is the incumbent. Triton for custom PyTorch kernels without C++. Mojo 1.0 (Aug 2026, Apache 2.0) targets exactly this layer with Pythonic syntax; promising, early. |
+| **Edge / on-device ML** | **C++**, **Swift** (Core ML), **Kotlin** (LiteRT/ML Kit), **Rust** | llama.cpp, ONNX Runtime, ExecuTorch |
+| **Classical ML / tabular** | **Python** | scikit-learn, XGBoost/LightGBM/CatBoost |
+| **Data pipelines for ML** | **Python + SQL** | see 3.10 |
+
+**Decision rule:**
+- Want to *train or fine-tune* models, do research, or be an "ML engineer" → **Python**, plus enough C++ to read CUDA kernels and enough math (linear algebra, probability, calculus) to read papers.
+- Want to *build products on top of* LLMs ("AI engineer") → **Python or TypeScript** — TS if the product is a web app, Python if it's a pipeline/agent/backend. Many teams use both.
+- Want to make models *run fast* → **C++ and CUDA**, then Triton, then watch Mojo.
+
+**Learn alongside:** linear algebra, probability, calculus basics; how transformers work; evaluation methodology; prompt/context engineering; vector search; GPUs and memory bandwidth basics; MLOps (experiment tracking, model registries, serving); cost management.
+
+**First project:** A retrieval-augmented Q&A app over your own documents, with evals that measure answer quality, deployed with a simple TS or Streamlit/Gradio frontend.
+
+### 3.10 Data engineering
+
+**Verdict: SQL + Python. Everything else is context-dependent.**
+
+- **SQL** is the primary language of data engineering. dbt made SQL the transformation layer; warehouses (Snowflake, BigQuery, Databricks SQL, Redshift) and lakehouse engines (Trino, DuckDB, Spark SQL) all speak it.
+- **Python** for orchestration (Airflow, Dagster, Prefect), ingestion (dlt, Airbyte connectors), transformation (Polars, PySpark, Ibis), and glue.
+- **Scala/Java**: legacy Spark and Flink shops, Kafka internals. Declining for new work; learn on the job if required.
+- **Rust**: the *tooling* is increasingly Rust (Polars, DataFusion, Arrow, Delta-rs, uv, ruff). You don't need Rust to use them; you need it to *build* them — a strong niche for a senior DE.
+- **Go**: streaming and infra components.
+
+**Learn alongside:** data modeling (Kimball, Data Vault, one-big-table), Apache Arrow/Parquet/Iceberg, Kafka, Spark fundamentals, cloud storage, IaC (Terraform/HCL — HCL is a top-10 GitHub language), cost optimization, data quality/testing.
+
+### 3.11 Systems programming (operating systems, databases, browsers, runtimes, networking)
+
+**Verdict: Rust for new projects; C to understand everything; C++ because the incumbents are written in it.**
+
+The 2024–2026 shift is decisive. Rust is in the Linux kernel (as a second implementation language), the Windows kernel, Android (which prioritizes Rust and Java for all new native code, with zero memory-safety vulnerabilities found in its Rust code), Chromium, Firefox, AWS (Firecracker, S3 components), Cloudflare, and Microsoft's core. CISA, NSA, and FBI guidance asked vendors to publish memory-safety roadmaps by 1 Jan 2026. 48.8% of organizations in the State of Rust 2025 survey make non-trivial use of Rust, up from 38.7% in 2023. Rust entered TIOBE's top 10 for the first time in mid-2026. Bun — one of the flagship Zig projects — migrated to Rust in July 2026 citing memory bugs.
+
+| Language | Domain fit | Jobs | Learnability | Notes |
+|---|---|---|---|---|
+| **Rust** | ★★★★★ | ★★★ (growing) | ★★ (★★★ with LLM help) | The choice for new systems code. Cargo is the most-admired build tool (71%). Costs: compile times, learning curve, async complexity. Hiring pool still thin. |
+| **C** | ★★★★★ | ★★★★ | ★★★ | Still the lingua franca: Linux, embedded, every FFI. GCC 15 defaults to C23. You must be able to read and write C to work in this domain regardless of your primary language. |
+| **C++** | ★★★★★ | ★★★★★ | ★★ | The incumbents (Chromium, LLVM, databases, game engines, HFT) are C++. C++26 (finalized Mar 2026) adds reflection, contracts, hardened std lib. WG21 chose "Profiles" over a borrow checker — controversial and unproven. Enormous existing job market; slowly shrinking new-project share. |
+| **Zig** | ★★★★ | ★ | ★★★ | Elegant "better C" with comptime and a superb cross-compiler. Pre-1.0; 0.16 (Apr 2026) rewrote I/O; official stance "not stable for serious work"; Bun left. Learn for insight or if you work on TigerBeetle/Ghostty-style projects. Not a 2026 career bet. |
+| **Go** | ★★★ | ★★★★ | ★★★★ | Not "systems" in the kernel sense, but the language of infrastructure software (Docker, Kubernetes, etcd, Prometheus, Terraform, Ollama). If your "systems" means "distributed systems," Go is the answer. |
+| **Odin / Hare / Carbon / Jai** | ★★ | ★ | ★★ | Experiments. Carbon (Google) still explicitly experimental. |
+| **Assembly (x86-64, ARM64, RISC-V)** | ★★★★ | ★★ | ★★ | Read it; write it rarely. Essential for debugging, perf, security, compilers. |
+
+**Learn alongside:** computer architecture, OS concepts (processes, memory, scheduling, file systems), networking (TCP/IP, sockets), concurrency, compilers basics, Linux internals, debuggers (gdb/lldb), profilers (perf, VTune), sanitizers, `unsafe` discipline.
+
+**First project:** Write a shell in C. Then rewrite it in Rust and compare. Then write a toy key-value store with a write-ahead log.
+
+### 3.12 Embedded, firmware, IoT, robotics
+
+**Verdict: C. Then C++. Rust is the growth edge. MicroPython/CircuitPython for prototyping.**
+
+| Language | Notes |
+|---|---|
+| **C** | Universal on microcontrollers; every vendor SDK (STM32 HAL, ESP-IDF, Zephyr, FreeRTOS, nRF) is C. Non-negotiable for a firmware career. |
+| **C++** | Larger embedded systems, automotive (AUTOSAR), drones (PX4/ArduPilot), robotics (ROS 2), Arduino. Use a constrained subset (no exceptions/RTTI, careful allocation). |
+| **Rust** | Embedded Rust (embassy, RTIC, probe-rs) is production-viable on ARM Cortex-M, ESP32, RISC-V. Adoption up ~28% in two years; certification (ISO 26262 via Ferrocene) exists. Still gaps in vendor support. Best as a second embedded language. |
+| **MicroPython / CircuitPython** | Fast prototyping, education, low-volume products. Not for production firmware with tight constraints. |
+| **Python** | Robotics tooling, ROS 2 nodes (with C++ for hot paths), test automation, data processing from devices. |
+| **Assembly** | Startup code, ISRs, DSP inner loops. Read fluently, write rarely. |
+| **Ada / SPARK** | Safety-critical aerospace/defense/rail. Small, stable, well-paid niche. Ada re-entered TIOBE's top 20 in 2026. |
+| **Lua** | Scripting layer in some embedded products (NodeMCU, OpenResty). |
+| **VHDL / Verilog / SystemVerilog** | Not programming languages — hardware description. Learn if you do FPGA/ASIC. |
+
+**Learn alongside:** electronics basics, reading datasheets, RTOS concepts, interrupts/DMA, communication protocols (UART, SPI, I2C, CAN, BLE, MQTT), debuggers (JTAG/SWD), oscilloscopes/logic analyzers, power management, bare-metal boot process.
+
+**First project:** Blink an LED on an STM32 or ESP32 in C without the Arduino framework. Then read a sensor over I2C and send the data over Wi-Fi/MQTT. Then do the same in Rust with embassy.
+
+### 3.13 Game development
+
+**Verdict: C# for most people (Unity or Godot); C++ if you want AAA or engine work; GDScript or Lua for the fastest possible start.**
+
+| Path | Language | Engine | 2026 reality |
+|---|---|---|---|
+| **Indie / mobile / most studios** | **C#** | **Unity** | Ships the most games by volume (~half of Steam releases). Huge job market. Unity's 2023 pricing debacle dented trust but the ecosystem held. C# skills transfer to enterprise work — a real safety net. |
+| **AAA / AA / engine programming** | **C++** | **Unreal Engine 5** | ~42% of AA/AAA studios (GDC 2026). Blueprints for scripting, C++ for everything serious. Also every proprietary engine (Frostbite, Decima, id Tech, Source 2). The hardest path, the highest ceiling. |
+| **Open-source indie / 2D / learning** | **GDScript** (Python-like) or **C#** | **Godot 4** | Fastest-growing engine; ~11% of new indie projects; #5 GitHub project by contributors in 2025; top-10 for first-time contributors. GDScript is delightful and only useful in Godot; C# is the transferable choice. |
+| **Roblox** | **Luau** (Lua dialect) | Roblox Studio | Enormous youth platform; real money for top creators; skills partly transfer. |
+| **Small 2D / jams / learning** | **Lua** (Love2D, Defold, PICO-8), **Python** (Pygame), **JavaScript** (Phaser, PixiJS, Three.js) | — | Web games in TS are a legit path (io games, browser MMOs, casual). |
+| **Custom engine / graphics programming** | **C++** (+ Vulkan/DirectX 12/Metal) or **Rust** (wgpu, Bevy) | — | Rust gamedev (Bevy) is exciting but has no shipped-hit track record and few jobs. C++ + graphics APIs is the employable path. Shader languages (HLSL/GLSL/WGSL/Slang) are required. |
+| **Gameplay scripting in big studios** | **Lua**, **Python**, **C#**, proprietary | — | Many studios embed Lua for designers. |
+
+**Decision rule:** Want a job at a studio → C# (Unity) or C++ (Unreal), depending on whether you're aiming indie/mobile or AAA. Want to ship your own game fastest → Godot (GDScript) or Unity (C#). Want to build engines → C++ + graphics APIs + math. Kid/teen who loves Roblox → Luau.
+
+**Learn alongside:** linear algebra (vectors, matrices, quaternions), game loops and fixed timesteps, physics basics, rendering pipeline concepts, ECS, a version-control system that handles binaries (Git LFS/Perforce), profiling, level design basics, and how to *finish* a project (the actual hard part).
+
+### 3.14 DevOps, cloud, platform engineering, SRE
+
+**Verdict: Bash + Python + Go, plus config languages (YAML, HCL).**
+
+| Language | Role |
+|---|---|
+| **Bash** | Glue, CI scripts, container entrypoints, incident response. 48.7% of all developers use shell. Learn it properly (quoting, pipes, `set -euo pipefail`, shellcheck). |
+| **Python** | Automation, tooling, cloud SDKs (boto3), Ansible modules, data munging, scripts that outgrow Bash. |
+| **Go** | The language of the platform itself: Docker, Kubernetes, Terraform, Prometheus, Grafana agents, etcd, Consul, Vault, Argo, Helm, Ollama. Writing operators, controllers, CLIs, and custom tooling means Go. JetBrains' #1 "want to adopt." Single static binaries, fast builds, simple concurrency. |
+| **HCL (Terraform/OpenTofu)** | Infrastructure-as-code. A top-10 GitHub language by activity. Not general-purpose but essential. |
+| **YAML** | You will write a shocking amount of it (Kubernetes, GitHub Actions, Ansible, Compose). Learn its gotchas. |
+| **PowerShell** | Windows-centric orgs and Azure. |
+| **Rust** | Newer infra tooling (Vector, some CNCF projects, eBPF via aya). Second language for platform engineers. |
+| **TypeScript / Python (Pulumi, CDK)** | IaC in a real language; growing alternative to HCL. |
+| **Nix** | Reproducible builds and environments; steep, cultish, increasingly valued. |
+
+**Learn alongside:** Linux administration, networking (DNS, TLS, load balancing, VPCs), containers and Kubernetes, CI/CD, one major cloud (AWS is 43% share), observability (OpenTelemetry, Prometheus/Grafana), security basics (IAM, secrets), incident management, cost management.
+
+**First project:** Containerize a web app, deploy it to a Kubernetes cluster (kind/k3s locally, then a cloud), provision the infra with Terraform, add CI/CD with GitHub Actions, and set up Prometheus/Grafana dashboards. Then write a small Go CLI that automates one annoying step.
+
+### 3.15 Cybersecurity, penetration testing, reverse engineering, malware analysis
+
+**Verdict: Python + C, then Bash, Go, Assembly, and JavaScript depending on specialty.**
+
+| Specialty | Languages |
+|---|---|
+| **Pentesting / red team** | **Python** (tooling, exploits, Impacket, Scapy), **Bash**, **PowerShell** (Windows AD), **Go** (implants, C2 — single binaries, cross-compiling, evasion), **C/C++** (custom loaders, shellcode), **JavaScript** (web/XSS/browser) |
+| **Web app security / bug bounty** | **JavaScript/TypeScript** (you must read frontend and Node code), **Python** (automation), **SQL** (injection), **PHP/Java/C#** (reading target code) |
+| **Reverse engineering / malware analysis** | **C** (to recognize compiled patterns), **Assembly** (x86-64, ARM64), **Python** (Ghidra/IDA/Binary Ninja scripting, angr, pwntools), **C++** (modern malware), **Rust/Go** (increasingly used by malware — learn to reverse them) |
+| **Exploit development / vulnerability research** | **C**, **Assembly**, **Python** (pwntools), **Rust** (fuzzing harnesses, safe tooling) |
+| **Security engineering / AppSec / detection** | **Python**, **Go**, **SQL/KQL/SPL** (SIEM queries), **YAML/Sigma**, **Rust** (secure tooling) |
+| **Smart-contract auditing** | **Solidity**, **Rust**, **Move** |
+
+**Learn alongside:** networking deeply, Linux and Windows internals, web protocols and the OWASP Top 10 (Broken Access Control is now the #1 CodeQL alert, up 172% YoY, partly from AI-scaffolded code), cryptography fundamentals, Active Directory, cloud security (IAM), CTFs (picoCTF → HackTheBox → real CVEs), certifications your target employer values (OSCP, Security+, etc.).
+
+### 3.16 Scientific computing, HPC, simulation, computational science
+
+**Verdict: Python for the interface, C++/Fortran for the kernels, Julia as the rising alternative to both.**
+
+| Language | Role |
+|---|---|
+| **Python** | The front-end to everything: NumPy/SciPy, JAX, CuPy, Numba, xarray, Dask. Most researchers write Python that calls compiled code. |
+| **C++** | Performance kernels, HPC frameworks (Kokkos, RAJA), simulation codes (LAMMPS, OpenFOAM), CUDA/HIP/SYCL. |
+| **Fortran** | Still alive in climate, weather, CFD, nuclear, quantum chemistry codes. TIOBE #11. Learn to read and modify; new codes rarely start in it. |
+| **Julia** | Designed for exactly this domain: fast, expressive, differentiable, GPU-capable, great for DifferentialEquations.jl, SciML. TIOBE #21 and climbing; explicitly taking MATLAB share. Best modern choice for a *new* simulation code you control. Small job market outside academia/national labs. |
+| **MATLAB** | Entrenched in engineering departments, Simulink, control systems, signal processing. Declining but not gone. Learn if required. |
+| **R** | Statistics-heavy sciences (biostat, ecology, econometrics). |
+| **CUDA / OpenMP / MPI** | Not languages so much as the parallelism layer you must learn regardless of host language. |
+| **Mojo** | Newly open-source (Aug 2026), aimed at GPU kernels with Python syntax. Watch. |
+
+### 3.17 Quantitative finance, trading, fintech
+
+| Role | Languages |
+|---|---|
+| **Quant researcher** | **Python** (pandas/Polars, NumPy, statsmodels, PyTorch), **SQL**, **R** (some shops), **KDB+/q** (tick data at banks/HFTs — small, extremely well-paid niche) |
+| **Quant developer / low-latency trading systems** | **C++** (the standard; C++20/23, lock-free, kernel bypass), **Rust** (growing — some HFTs and crypto market makers), **Java** (some exchanges and banks — LMAX-style low-GC Java) |
+| **Jane Street–style shops** | **OCaml** — a famous outlier; excellent for functional-programming lovers; a handful of employers |
+| **Fintech / payments / banking backend** | **Java** (Spring), **Kotlin**, **Go**, **C#**, **Python**; **COBOL** on the mainframe core |
+| **Risk / actuarial / pricing** | **Python**, **C++** (QuantLib), **R**, **Excel/VBA** (still, yes) |
+| **Crypto / DeFi** | **Solidity** (EVM), **Rust** (Solana, Polkadot, Near, Cosmos), **Move** (Aptos, Sui), **Go** (node software), **TypeScript** (dApp frontends, ethers/viem) |
+
+### 3.18 Blockchain and smart contracts
+
+**Verdict: Solidity for EVM chains (where most deployed value lives), Rust for everything else, TypeScript for the frontend/tooling.** Move (Aptos/Sui) is a strong technical design with a smaller market. Vyper is a Pythonic EVM alternative. Cairo (Starknet) for ZK rollups. The sector is volatile; treat as a specialty layered on solid general skills (TS + Rust), not a first language. Salaries were among the highest in 2021–2022 and 2024–2025 bull phases and cratered in between.
+
+### 3.19 Automation, scripting, and "I'm not a programmer but…"
+
+**Verdict: Python.** It's the closest thing to a universal automation language, has libraries for everything (Excel via openpyxl, PDFs, email, web scraping via Playwright/httpx, APIs), and AI assistants are exceptionally good at writing Python scripts from plain-English descriptions.
+
+- **Google Workspace users:** Google Apps Script (JavaScript).
+- **Microsoft 365 / Windows admins:** PowerShell; Office Scripts (TypeScript); VBA for legacy Excel macros (still everywhere; don't start new ones).
+- **macOS:** Shell + Python; AppleScript/JXA/Shortcuts for app automation.
+- **Low-code glue:** n8n, Make, Zapier — then Python when you hit their limits.
+- **Browser automation:** Python or TypeScript with Playwright.
+
+### 3.20 Enterprise software (banks, insurers, government, Fortune 500, SAP shops)
+
+**Verdict: Java. C# in Microsoft-centric orgs. SQL always. Plus the platform-specific language of your employer.**
+
+| Language | Notes |
+|---|---|
+| **Java** | #2 primary language worldwide (33%); Spring Boot is the enterprise default; JDK 25 LTS with virtual threads and modern syntax. 20% YoY GitHub growth. The most reliable "get a stable well-paid job anywhere on Earth" language. |
+| **C#** | Language of the Year 2025 (TIOBE). .NET 10 LTS. Dominant in healthcare, government (esp. US/UK/Nordics), manufacturing, and anywhere Microsoft licensing runs deep. |
+| **Kotlin** | Modern JVM alternative; many Java shops adopt it incrementally. |
+| **SQL (Oracle PL/SQL, T-SQL, DB2)** | Deep database skills are disproportionately valued in enterprise. |
+| **COBOL / JCL / PL/I / RPG** | Mainframe cores at banks, insurers, airlines, government. Steady demand, decent pay (~$115–120k US median), aging workforce. Not a mythical goldmine — see §3.21. |
+| **ABAP** | SAP shops. Extremely stable niche; SAP is moving toward "clean core" with side-by-side extensions in Java/Node (BTP). |
+| **Salesforce Apex** | Java-like; a large, specific ecosystem with its own certifications. |
+| **ServiceNow JavaScript, Pega, Mendix, OutSystems, Power Platform** | Low-code platforms with real (if unglamorous) careers. |
+| **Go / Python / TypeScript** | Increasingly present in enterprise "digital" teams, cloud migrations, and internal tooling. |
+
+### 3.21 Legacy systems and mainframes
+
+**Verdict: COBOL + JCL + DB2/SQL + (increasingly) Java for modernization.**
+
+**The reality vs. the myth:** There is a persistent story that COBOL programmers earn fortunes because nobody knows COBOL. The data says: US COBOL/mainframe developers earn roughly $105–125k median, with senior contractors higher during crises (e.g., 2020 unemployment-system surges). That's *good*, and demand is *steady*, but it's not above a senior Java engineer. The work is stable, often remote-unfriendly, concentrated in finance/insurance/government, and increasingly involves *modernization* (wrapping COBOL in APIs, migrating to Java, AI-assisted translation — a very active area in 2025–2026). Learn COBOL if you value stability and don't mind legacy; pair it with Java, SQL, and cloud skills to be the person who bridges old and new.
+
+### 3.22 Compilers, language design, developer tooling
+
+**Verdict: Rust or C++ (or OCaml/Haskell for the theory-heavy path).**
+
+- **Rust:** the language of modern tooling. ruff, uv (fastest-growing GitHub projects), Zed, Turbopack, SWC, Biome, Deno's core, Tauri, Wasmtime, rust-analyzer. If you want to *build* the tools developers use, Rust is where the action is.
+- **C++:** LLVM/Clang, GCC, V8, MSVC, JavaScriptCore, most existing compilers. Required to work on the incumbents.
+- **OCaml:** The classic compiler-writer's language (Rust's first compiler, Flow, Hack, Coq/Rocq). Small, elite community.
+- **Haskell:** GHC, type-theory research, Pandoc. For the theory path.
+- **Go:** simpler tooling (esbuild, gopls, many linters), CLI tools.
+- **Zig:** the Zig compiler itself and a few tools; excellent cross-compiler and build system for C/C++ projects.
+- **TypeScript:** language servers, VS Code extensions, web-based tooling.
+
+**Learn alongside:** parsing, type systems, IR design, SSA, optimization passes, code generation, LLVM, the Dragon Book or *Crafting Interpreters* (start here), Wasm.
+
+### 3.23 Hardware description and FPGA/ASIC
+
+Not programming in the usual sense, but often asked: **SystemVerilog** (industry ASIC/verification), **Verilog**, **VHDL** (aerospace/defense/Europe), with **Python** (cocotb, Amaranth), **Chisel** (Scala, RISC-V ecosystem), and **C++** (SystemC, HLS) for modern flows. **Tcl** for tool scripting, unavoidably.
+
+### 3.24 Education and teaching
+
+| Learner | Language | Why |
+|---|---|---|
+| **Ages 6–10** | Scratch / ScratchJr | Visual blocks, immediate feedback, MIT-designed. |
+| **Ages 10–14** | Scratch → **Python**; Roblox **Luau**; MakeCode (blocks→JS) for micro:bit | Python has the most kid-oriented material; Roblox has the most motivation. |
+| **Ages 14–18** | **Python** or **JavaScript**; **Java** (AP CS A in the US); **C#** (Unity) or **Lua** for game-motivated teens | Match the language to what they want to build. |
+| **University CS intro** | **Python** (most common), **Java**, **C** (systems-first schools), **Racket/Scheme** (HtDP/SICP tradition), **OCaml** (some), **Haskell** (some) | Any of these works; the *course* matters more than the language. |
+| **Adult career switchers** | **Python** or **TypeScript** | See Part V. |
+
+### 3.25 "Enlightenment" languages — learning to think better
+
+These will not get you a job directly (usually). They will make you a dramatically better programmer in whatever language you use for work. Pick one after you're comfortable in a mainstream language.
+
+| Language | What it rewires |
+|---|---|
+| **Haskell** | Purity, laziness, algebraic data types, type classes, monads. Once you understand these, you see them everywhere (Rust's `Option`/`Result`, TypeScript's discriminated unions). |
+| **OCaml** | Pragmatic typed FP; the type inference is a revelation; modules as a first-class concept. Used at Jane Street, in the original Rust compiler, in Coq. |
+| **Racket / Scheme (via SICP or HtDP)** | Code as data, recursion as the primary tool, building languages inside languages. |
+| **Clojure** | Lisp on the JVM with immutable data structures and a REPL-driven workflow; a real (small) job market, high salaries. |
+| **Elixir / Erlang** | The actor model, "let it crash," supervision trees — a fundamentally different theory of reliability. Elixir #3 most admired; Phoenix most-admired web framework. |
+| **Rust** | Ownership and borrowing make you think about lifetimes and aliasing in *every* language afterward. |
+| **Prolog** | Logic programming: state facts and rules, let the engine search. Unification will change how you think about pattern matching. |
+| **Forth** | Stack machines, radical minimalism; you can build the whole language in a weekend. |
+| **APL / BQN / Uiua** | Array thinking with extreme terseness; you'll never look at loops the same way. |
+| **Smalltalk (Pharo)** | What "everything is an object" and "live programming" actually mean. |
+| **Gleam** | Small, friendly typed FP on the Erlang VM; #2 most admired language 2025. A gentler on-ramp to both typed FP and BEAM. |
+| **Assembly** | What the machine really does. Pick RISC-V (cleanest) or x86-64 (most useful). |
+
+---
