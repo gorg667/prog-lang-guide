@@ -177,3 +177,147 @@ Languages cluster into families. Learning one member of a family makes the other
 **The ideal long-term set** touches at least four families: one mainstream OOP/imperative language (for work), one dynamic scripting language (for speed), one systems language (to understand the machine), one functional language (to reshape how you think), plus SQL (because data). A person who knows Python, TypeScript, Rust, and one of Haskell/OCaml/Clojure — plus SQL — can learn anything else in a weekend.
 
 ---
+
+## Part II — The 2026 data landscape
+
+No single ranking tells the truth. Each index measures a different proxy, has a different bias, and is useful for a different question. The honest approach is to look at all of them and understand *why* they disagree.
+
+### 2.1 The five big indices and what each actually measures
+
+| Index | What it measures | Biased toward | Good for answering | Latest |
+|---|---|---|---|---|
+| **TIOBE** | Search-engine hit counts for `"<language> programming"` across ~25 engines | Old, widely documented languages; languages with lots of courses; over-represents C/VB/Fortran | "How much *total documentation and interest* exists?" Long-term trend lines. | Sep 2026 |
+| **Stack Overflow Developer Survey** | ~49k self-selected developers' *usage* and *sentiment* ("admired", "desired") | Western, English-speaking, web-heavy professional developers; over-represents JS | "What do working developers actually use, and what do they *want* to use?" | Jul 2025 (2026 edition pending) |
+| **GitHub Octoverse** | Contributor counts on public + private GitHub repos | Open-source and web/AI activity; under-represents enterprise Java/C#/COBOL behind firewalls | "Where is *new* code being written?" Momentum. | Oct 2025 |
+| **JetBrains State of Developer Ecosystem** | ~24.5k developers, 194 countries; "primary language", "want to adopt" | Global (China 20%, US 13%, India 12%); JetBrains IDE users (Java/Kotlin/Python heavy) | "What's the *global* professional picture, including Asia?" Adoption intent. | Oct 2025 |
+| **IEEE Spectrum Top Programming Languages** | Composite of 11 metrics from 8 sources, with a separate **Jobs** ranking | Engineering/academic (IEEE members); explicit jobs lens | "What do *employers* ask for?" | Sep 2025 |
+| **PYPL** | Google Trends for "<language> tutorial" | Learners; what people are trying to *learn right now* | Beginner interest | Monthly |
+| **RedMonk** | GitHub + Stack Overflow rank correlation | Open-source developer community | Long-run "tier" membership | Semi-annual |
+
+**Key insight:** TIOBE says C is #2 and Rust barely cracked the top 10; GitHub says TypeScript is #1 and C isn't in the top 10; Stack Overflow says JavaScript is #1. **None of them is wrong.** They're measuring documentation volume, new-code activity, and working-developer usage respectively. For a *learner*, the most relevant signals are (1) job postings in your target domain, (2) Octoverse (where new code is written), and (3) the SO/JetBrains "want to use" numbers (where the profession is heading).
+
+### 2.2 Cross-index scoreboard
+
+Rankings as of the most recent edition of each source. "—" means outside the reported top list.
+
+| Language | TIOBE Sep 2026 (share) | Octoverse 2025 (contributors) | SO 2025 (% used) | JetBrains 2025 (primary lang) | IEEE 2025 (Spectrum / Jobs) |
+|---|---|---|---|---|---|
+| **Python** | #1 (17.76%) | #2 (2.6M, +48.8%) | #4 (57.9%) | #1 (35%) | #1 / #1 |
+| **C** | #2 (10.28%) | — | ~20% | mid | top 10 |
+| **C++** | #3 (8.67%) | #8 | ~22% | mid | top 5 |
+| **Java** | #4 (7.54%) | #4 (+20.7%) | ~29% | #2 (33%) | top 5 / top 3 |
+| **C#** | #5 (4.22%) — *Language of the Year 2025* | #5 (+22.2%) | ~27% | mid | top 10 |
+| **JavaScript** | #6 (2.76%) | #3 (2.15M, +24.8%) | **#1 (66%)** | #3 (26%) | #6 (was #3) / top 5 |
+| **TypeScript** | ~#25-30 | **#1 (+1.05M, +66.6%)** | ~43% | #4 (22%) | top 10 |
+| **SQL** | #8 (2.16%) | n/a (not a repo language) | #3 (58.6%) | (not asked as primary) | top 3 on Jobs |
+| **Go** | ~#12 | #10 | ~14% | ~7% | top 10 |
+| **Rust** | **#10 (1.34%)** — first-ever top-10 run | ~#12 | ~13% | ~4% | top 15 |
+| **Kotlin** | ~#20 | ~#12 | ~10% | ~7% | top 15 |
+| **Swift** | ~#22 | ~#15 | ~5% | ~3% | top 15 |
+| **PHP** | ~#13 | #6 | ~18% | ~8% | top 15 |
+| **Ruby** | left top 20 (2026) | ~#15 | ~5% | ~2% | top 20 |
+| **R** | #9 (1.69%) | — | ~4% | ~2% | top 10 (Spectrum) |
+| **Visual Basic** | #7 (2.55%) | — | ~3% | — | — |
+| **Fortran** | #11 (1.24%) | — | <1% | — | — |
+| **Dart** | ~#28 | ~#14 | ~6% | ~3% | — |
+| **Scala** | ~#30 | ~#20 | ~2.5% | ~1% | — |
+| **Julia** | #21 (0.74%) — rising, eating MATLAB | — | <1% | <1% | — |
+| **COBOL** | #20 | — | <1% | — | — |
+| **Zig** | — | — | ~1% | — | — |
+| **Elixir** | — | — | ~2.5% | ~1% | — |
+
+**Sentiment layer (the "would use again" and "want to learn" signals):**
+
+| Metric | Top results |
+|---|---|
+| **SO 2025 "Most admired"** (used it, want to keep using it) | Rust 72%, Gleam 70%, Elixir 66%, Zig 64%, then Go, TypeScript, Python, Kotlin, Swift |
+| **SO 2025 "Most desired"** (want to use next year) | Python, JavaScript, TypeScript, SQL, Go, Rust |
+| **JetBrains 2025 "Plan to adopt next"** | Go 11%, Rust 10%, Python 7%, Kotlin 6%, TypeScript 5% |
+| **JetBrains 2025 biggest migration gains** | TypeScript (most dramatic), Python, Go |
+| **SO 2025 most admired build tool** | Cargo (Rust) 71% |
+| **SO 2025 most admired web framework** | Phoenix (Elixir), 3rd year running |
+
+### 2.3 Salary: what the numbers say and why they lie
+
+**What the numbers say (US, 2025–2026, aggregated across Stack Overflow 2025, Levels.fyi, and several 2026 job-posting scrapes; treat as ±15%):**
+
+| Tier | Languages | Typical US median (experienced) |
+|---|---|---|
+| **Scarcity premium** | Erlang, Elixir, Clojure, Scala, F#, OCaml, Solidity | $145k–$170k |
+| **High-demand systems / cloud** | Rust, Go | $140k–$155k |
+| **Mainstream-high** | Kotlin, Swift, TypeScript, C++, Ruby | $125k–$145k |
+| **Mainstream** | Python, Java, C#, JavaScript, SQL | $115k–$135k |
+| **Mainstream-lower / high-volume** | PHP, Dart, Visual Basic, COBOL | $95k–$120k |
+
+Outside the US, multiply by roughly: Western Europe 0.5–0.7, UK 0.55–0.7, Canada 0.65–0.8, Australia 0.7–0.85, Eastern Europe 0.3–0.5, India 0.12–0.25, LATAM 0.25–0.45 — with large variance by city and remote-for-US-company arrangements that can flatten the gap entirely.
+
+**Why they lie:**
+
+1. **Selection effect.** Nobody's first language is Erlang. The Erlang median reflects 10-year veterans. Learning Erlang doesn't make you a veteran.
+2. **Small samples.** Clojure and F# medians are computed from a few hundred respondents; a handful of hedge-fund salaries swing the number.
+3. **Domain confound.** "Scala pays well" mostly means "big-data engineers at large companies pay well." "Solidity pays well" means "crypto paid well in the bull market and had few practitioners."
+4. **Language ≠ role.** The highest-paid Python users are ML engineers at frontier labs; the lowest-paid are QA scripters. The spread *within* Python (~$80k to $500k+) dwarfs the difference *between* Python's and Go's medians.
+5. **Survivorship.** People still writing COBOL are those who stayed; the number says nothing about how easy it is to *enter*.
+
+**How to actually use salary data:**
+
+- Pick your **domain** first (Part III). Salary follows domain and seniority, not syntax.
+- Within a domain, prefer the language with **more openings** over the one with a slightly higher median. Optionality compounds; a 5% median difference doesn't.
+- Treat the "scarcity premium" tier as a **third or fourth language** to learn once you're senior and want to move into a niche — not as a first language.
+- Rust and Go are the exceptions that partly justify the hype: they combine above-mainstream pay with *growing* demand (JetBrains' #1 and #2 "want to adopt" languages), and both are learnable as a second language.
+
+### 2.4 Momentum: who's rising, who's falling
+
+**Rising (2024 → 2026):**
+
+| Language | Evidence | Read |
+|---|---|---|
+| **TypeScript** | #1 on GitHub (Aug 2025), +66% contributors; frameworks default to TS; JetBrains' biggest migration winner | The new default for anything web. JavaScript-without-TypeScript is now a legacy skill. |
+| **Python** | +7 pts usage YoY in SO 2025 (largest jump in a decade); +48.8% GitHub contributors; free-threading officially supported in 3.14 | The AI boom's native language. TIOBE share has *fallen* from its 27% peak (Jul 2025) to 17.8%, but that reflects TIOBE's search-based methodology being disrupted by AI, not Python losing users. |
+| **Rust** | First-ever TIOBE top 10 (Jul–Sep 2026); 48.8% of surveyed orgs use it non-trivially (up from 38.7% in 2023); in Linux and Windows kernels; government memory-safety guidance; Bun migrated to it | Crossed from "admired" to "adopted." Still a small job market in absolute terms but the fastest-growing systems language. |
+| **Go** | JetBrains' #1 "want to adopt" (11%); Green Tea GC (Go 1.26) cut GC overhead 10–40%; entire cloud-native stack | Quietly became the default for infrastructure. Boring in the best way. |
+| **C#** | TIOBE Language of the Year 2025 (+2.94 pts); .NET 10 LTS; Unity + Godot; TS-like ergonomics | The most under-rated mainstream language; Microsoft's cross-platform bet has fully paid off. |
+| **Kotlin** | Compose Multiplatform iOS stable (May 2025); Google-backed KMP; Swift export | The Android language is now a credible full-stack and cross-platform language. |
+| **Julia** | TIOBE #21 and climbing; explicitly taking MATLAB share (MATLAB fell to #27) | Winning the scientific-computing niche, not going general-purpose. |
+| **Mojo** | 1.0 shipped Aug 2026; compiler open-sourced under Apache 2.0 | Just became a real language. Watch for GPU/AI-kernel work; too early for a career bet. |
+
+**Stable / plateaued:**
+
+| Language | Notes |
+|---|---|
+| **Java** | Steady 20% YoY GitHub growth, #2 primary language globally. JDK 25 LTS (Sep 2025) modernizes the language (compact source files, instance `main`). Not exciting, not going anywhere. |
+| **C / C++** | TIOBE #2/#3. C++26 finalized (Mar 2026) with reflection, contracts, hardened std lib. Under pressure from Rust and government memory-safety guidance; WG21 rejected the "Safe C++" borrow-checker proposal in favor of "Profiles" — controversial. Demand in gamedev, embedded, HFT, and HPC is unchanged. |
+| **JavaScript** | Still #1 in usage (66%) but growth has shifted to TypeScript. IEEE Spectrum dropped it from #3 to #6. You must still learn it — TypeScript *is* JavaScript. |
+| **Swift** | Swift 6.3 (Mar 2026) brought official Android support. Apple-platform demand steady; cross-platform ambition arrived late vs. KMP/Flutter. |
+| **PHP** | Stable deployment share; Laravel dominates new PHP (64% of PHP devs); PHP 8.5. Declining in *new-project mindshare*, not in jobs. |
+| **SQL** | Eternal. #3 usage, top-3 in every Jobs ranking. Not optional. |
+
+**Declining (in mindshare; jobs lag by 5–10 years):**
+
+| Language | Notes |
+|---|---|
+| **Ruby** | Left TIOBE top 20 in 2026. Rails 8 is excellent, Shopify/GitHub/Stripe still hire, but few new companies start in Ruby. Good *second* language for a web dev who wants a productive, well-paid niche; poor first language for job hunting outside specific hubs. |
+| **Perl** | Left TIOBE top 20 in 2026. Legacy sysadmin/bioinformatics only. |
+| **Objective-C** | Legacy iOS maintenance only. Learn to *read* if you do iOS. |
+| **MATLAB** | Losing to Julia and Python in research; still entrenched in some engineering firms and academia. |
+| **Scala** | Spark shops moved to PySpark/SQL; Scala 3 is technically excellent but the market shrank. |
+| **Visual Basic** | TIOBE #7 (a methodology artifact) but no new development. Maintenance only. |
+| **Zig** | SO "admired" 64%, but still pre-1.0 with breaking releases (0.16 in Apr 2026 rewrote I/O), officially "not stable for serious work," and lost its flagship project (Bun) to Rust. Fascinating language, not a 2026 career bet. |
+
+### 2.5 The junior-market problem
+
+This deserves its own section because it changes the advice.
+
+**The data:** JetBrains 2025 found 61% of junior developers describe the job market as challenging vs. 34% of seniors. Anecdotal reports across 2025–2026 describe entry-level postings down sharply from 2021–2022 peaks while senior/staff demand held. Meanwhile the *supply* of new developers exploded: GitHub added 36 million accounts in 2025 alone (India +5.2M).
+
+**The mechanism:** AI compressed the value of "junior work" (well-specified tickets, boilerplate, glue code) faster than it created new junior roles. Companies are hiring fewer people who need supervision and more people who can supervise — including supervising AI.
+
+**What this means for language choice:**
+
+1. **Pick the language with the *largest* entry-level market, not the coolest one.** That's TypeScript/JavaScript (web), Python (data/AI/backend), Java/C# (enterprise). Rust and Go are excellent *second* languages; junior Rust jobs are rare.
+2. **Depth beats breadth.** One language + one framework + one database, known well enough to ship and debug a real application, beats five languages at tutorial level.
+3. **Ship things people can see.** A deployed app with users, a merged open-source PR, a published package — these are the new "junior credentials." Certificates and bootcamp completions are heavily discounted.
+4. **Learn the parts AI is bad at:** debugging production issues, reading unfamiliar codebases, testing, security basics, performance profiling, and *asking the right questions*. Languages with strong tooling (TypeScript, Rust, Go, C#, Java, Kotlin) make these skills easier to practice.
+5. **Consider adjacent on-ramps:** QA automation (Python/TypeScript), data analysis (SQL/Python), IT/DevOps (Bash/Python/Go), technical writing, support engineering. Each has a lower entry bar and a path to software engineering.
+
+---
