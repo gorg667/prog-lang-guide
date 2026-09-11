@@ -128,7 +128,8 @@ def build_search_index(md: str, heads: list[dict]) -> str:
             sections.append(current)
             continue
         if current is not None:
-            txt = re.sub(r"[|*_`>#\[\]()]+", " ", line)
+            txt = re.sub(r"★+", " ", line)
+            txt = re.sub(r"[|*_`>#\[\]()]+", " ", txt)
             txt = re.sub(r"\s+", " ", txt).strip()
             if txt:
                 current["b"] += txt + " "
@@ -155,12 +156,15 @@ def main(argv: list[str]) -> int:
     if check_only:
         return 0
 
-    body = render_markdown(md)
+    web_md = re.sub(r"^## Table of Contents\n.*?(?=^## )", "", md, count=1, flags=re.S | re.M)
+    web_heads = extract_headings(web_md)
+    dedupe_slugs(web_heads)
+    body = render_markdown(web_md)
     template = TEMPLATE.read_text(encoding="utf-8")
     page = (
         template.replace("{{CONTENT}}", body)
-        .replace("{{SIDEBAR}}", build_sidebar(heads))
-        .replace("{{SEARCH_INDEX}}", build_search_index(md, heads))
+        .replace("{{SIDEBAR}}", build_sidebar(web_heads))
+        .replace("{{SEARCH_INDEX}}", build_search_index(web_md, web_heads))
         .replace("{{WORDS}}", f"{word_count(md):,}")
         .replace("{{SECTIONS}}", str(len(heads)))
     )
