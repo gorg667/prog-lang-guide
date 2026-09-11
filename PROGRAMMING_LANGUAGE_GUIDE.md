@@ -1247,3 +1247,145 @@ Blunt advice about what *not* to do, because it's as useful as the positive advi
 - **Carbon:** still explicitly experimental after four years; Google's own guidance says to use Rust if you can.
 
 ---
+
+## Part IX — FAQ
+
+**Q: Python or JavaScript first?**
+Python if you don't know what you want to build, or you want data/AI/automation. TypeScript (not plain JavaScript) if you know you want to build things people see in a browser. Both are fine; the difference is weeks, not years. Whichever you pick, you'll learn the other within a year or two.
+
+**Q: Is it too late to learn programming because of AI?**
+No. More people are programming than ever (36M new GitHub accounts in 2025). What changed is *what* is valued: judgment, review, architecture, testing, debugging, and domain knowledge are up; typing syntax from memory is down. The junior market is harder (§2.5), so the bar to *get hired* is higher — but the bar to *become useful* is lower than ever because AI tutors are extraordinary. Learn fundamentals, ship real things, and use AI as a tutor rather than a crutch.
+
+**Q: Which language pays the most?**
+The wrong question (§2.3). Salary follows domain and seniority. Within reach for a new learner: Go and Rust have the best combination of above-average pay and growing demand. The languages at the very top of salary charts (Erlang, Clojure, Scala, OCaml) pay well because nobody learns them first.
+
+**Q: Should I learn Rust?**
+Yes, eventually — it's the most important systems language of the decade and will make you a better programmer in every other language. No, not first. Learn Python or TypeScript, then C if you're systems-inclined, then Rust. If you're already a working developer, Rust is an excellent next language; budget 2–4 months to feel comfortable, faster with an LLM tutor.
+
+**Q: Is Java dead? Is PHP dead? Is Ruby dead?**
+No, no, and no — but they're at different points. Java is enormous and stable (#2 primary language globally). PHP is stable in deployment share and declining in new-project mindshare; Laravel keeps it pleasant. Ruby has left the TIOBE top 20 and few new companies start in it, but existing Rails employers pay well. "Dead" in the sense of "no jobs" applies to none of them; "declining for new projects" applies to Ruby clearly, PHP slowly, Java not really.
+
+**Q: JavaScript or TypeScript?**
+TypeScript. Learn JavaScript's semantics *through* it. In 2026, writing untyped JS for anything larger than a script is a legacy practice; every framework scaffolds TS; TS is #1 on GitHub.
+
+**Q: C or C++ first?**
+C, if you have the patience — it's small, and it teaches the machine. Then C++ if your domain needs it (games, HFT, engines). If you're going straight to Unreal Engine, you can start with C++ and learn the C subset along the way.
+
+**Q: Go or Rust?**
+Different jobs. Go: servers, CLIs, cloud infrastructure, DevOps tooling, teams that value simplicity — learnable in a week. Rust: systems programming, performance-critical code, developer tooling, anything where memory safety without GC matters — months to learn. Many infrastructure engineers know both; learn Go first.
+
+**Q: Kotlin or Java for Android?**
+Kotlin. Google has recommended it since 2019; Jetpack Compose is Kotlin-only; new Android material is Kotlin. Learn to *read* Java for older codebases.
+
+**Q: Swift or React Native or Flutter for mobile?**
+Swift (and Kotlin) if you're building one platform or quality is the product. React Native if you already know React/TypeScript. Flutter if you want pixel-identical UIs and one team for mobile + desktop + embedded. KMP if you're an Android team sharing logic with iOS. See §3.6.
+
+**Q: Which language for AI?**
+Python for everything from research to production pipelines. TypeScript for AI product UIs and many agent/MCP tools. C++/CUDA for kernels; Triton and Mojo as Python-flavored alternatives at that layer. See §3.9.
+
+**Q: Is SQL a programming language? Do I need it?**
+It's a declarative query language and yes, you need it — it's in more job postings than almost anything else and appears in 58.6% of developers' toolkits. Learn PostgreSQL's dialect deeply.
+
+**Q: What about low-code / no-code?**
+Real and useful for internal tools and prototypes (n8n, Retool, Power Platform, Bubble). They complement programming; they don't replace it. Most people who go deep on them end up learning JavaScript or Python to escape their limits.
+
+**Q: How many languages should I know?**
+For a career: one deeply, two or three more competently, plus SQL and shell. For excellence: add one from each major paradigm family over a decade (§1.5, §6.2).
+
+**Q: What about Zig / Mojo / Gleam / Odin / Nim?**
+Fascinating, fun, and not career bets in 2026. Zig is pre-1.0 with breaking changes; Mojo just hit 1.0 and went open-source (Aug 2026) — promising for GPU work; Gleam is the friendliest typed-FP on-ramp; Odin and Nim are small communities. Learn any of them for joy and insight after you have a mainstream foundation.
+
+**Q: I'm 40 / 50 / 60. Too old?**
+No. The industry has an age-bias problem, but domain expertise plus programming is a powerful combination — finance, healthcare, law, manufacturing, and education all need people who understand both. Data/analytics and automation are especially welcoming on-ramps. Pick Python or TypeScript, build something related to your existing expertise, and lean on that expertise in the job search.
+
+**Q: I live outside the US/Europe. Does this change anything?**
+The domain → language mapping is global. The *market* differs: Java and PHP are relatively stronger in South Asia, Southeast Asia, LATAM, and Africa; C# in Nordics/UK/Australia government and enterprise; Kotlin/Java in Android-dominant markets; Python and TypeScript everywhere for remote work. India added 5.2M GitHub developers in 2025 and is projected to be the largest developer population by 2030 — competition for remote junior roles is intense, so depth and shipped work matter even more. Check local job boards.
+
+**Q: How do I know when I've "learned" a language?**
+When you can: build and deploy a non-trivial project without a tutorial; read and understand an unfamiliar codebase in it; debug a problem you've never seen; explain to someone else *why* the idioms are what they are; and know what the language is *bad* at. That last one is the mark of real understanding.
+
+---
+
+## Appendix A — Sources & methodology
+
+### A.1 Primary data sources (all consulted September 2026)
+
+| Source | Edition | What was used |
+|---|---|---|
+| **TIOBE Programming Community Index** | September 2026 (via TechRepublic and TIOBE) | Rankings and ratings for top 25; Language of the Year 2025 (C#); Julia/MATLAB movement; Perl/Ruby exit from top 20 |
+| **Stack Overflow Developer Survey** | 2025 (published 29 Jul 2025; ~49k respondents) | Most used (JS 66%, HTML/CSS 61.9%, SQL 58.6%, Python 57.9%, Bash 48.7%), most admired (Rust 72%, Gleam 70%, Elixir 66%, Zig 64%), most desired, framework/tool admiration (Cargo 71%, Phoenix), Docker +17, FastAPI +5, Redis +8, Python +7 |
+| **GitHub Octoverse** | 2025 (28 Oct 2025) | TypeScript #1 by contributors (Aug 2025); contributor growth by language; 180M+ developers; 36M new in 2025; India +5.2M; top and fastest-growing projects; AI adoption; typed-language thesis; Broken Access Control +172% |
+| **JetBrains State of Developer Ecosystem** | 2025 (15 Oct 2025; 24,534 devs, 194 countries) | Primary languages (Python 35%, Java 33%, JS 26%, TS 22%); want-to-adopt (Go 11%, Rust 10%, Python 7%, Kotlin 6%, TS 5%); AI usage 85%; junior market 61% vs 34%; cloud share (AWS 43%) |
+| **IEEE Spectrum Top Programming Languages** | 2025 (23 Sep 2025) | Spectrum and Jobs rankings (Python #1 both); JavaScript #3→#6; Stack Exchange question volume 22% of 2024; AI-effect essay |
+| **State of Rust Survey** | 2025 (published 2 Mar 2026; 7,156 responses) | 48.8% of orgs non-trivial use (38.7% in 2023); hiring trend; challenges (complexity, compile times) |
+| **Rust Project blog** | "What we heard about Rust's challenges" (20 Mar 2026) | Complexity, learning curve, async concerns |
+| **Herb Sutter / InfoQ / ISO C++** | March 2026 London WG21 trip report | C++26 finalization, reflection, contracts, Profiles vs Safe C++ |
+| **Python.org / Astral** | Python 3.14 release (Oct 2025); PEP 779 | Free-threading officially supported; uv adoption |
+| **OpenJDK / Oracle** | JDK 25 (16 Sep 2025); JDK 27 schedule | LTS cadence, features |
+| **Microsoft** | .NET 10 / C# 14 (11 Nov 2025) | LTS to Nov 2028; file-based apps; extension members |
+| **Go team** | Go 1.25 (Aug 2025), 1.26 (Feb 2026) release notes and Green Tea GC blog | GC default, 10–40% overhead reduction |
+| **Swift.org / Skip** | Swift 6.3 (Mar 2026) | Official Android SDK |
+| **JetBrains Kotlin blog** | Kotlin 2.3 (Dec 2025); Compose Multiplatform 1.8–1.11 | iOS stable; Swift export |
+| **Modular / Simon Willison** | Mojo 1.0 (Aug 2026); open-source announcement (18 Aug 2026) | Apache 2.0 compiler; abandoned Python-superset goal |
+| **Zig releases / JetBrains blog** | Zig 0.15 (Aug 2025), 0.16 (13 Apr 2026); "Why Zig Isn't 1.0 (Yet)" (Jun 2026) | Breaking I/O changes; stability stance |
+| **Pragmatic Engineer / The Register / Bun blog** | Bun Zig→Rust rewrite (Jul 2026); Anthropic acquisition (Dec 2025) | 535k lines, 11 days, 64 agents, ~$165k; Zig creator's criticism |
+| **Matt Welsh** | "Revisiting Rust in 2026" (Mar 2026) | LLMs flattening learning curve; hiring difficulty; startup caution |
+| **CISA / NSA / FBI** | Memory-safe languages guidance (Jun 2025); "Product Security Bad Practices" | Roadmap recommendation by 1 Jan 2026 |
+| **Salary aggregators** | Stack Overflow 2025 (work section), Levels.fyi, multiple 2026 job-posting analyses | Directional tiers only; see §2.3 caveats |
+| **Game industry** | GDC 2026 State of the Industry; multiple 2026 engine-share analyses | Unreal ~42% AA/AAA; Unity volume lead; Godot ~11% new indie |
+| **Mobile** | Multiple 2026 cross-platform surveys | RN ~43%, Flutter ~35%, KMP rising from ~7% |
+| **PHP** | State of PHP 2026; WordPress core (May 2026) | Laravel 64%; PHP 8.5 support |
+| **COBOL** | Hypercubic (Mar 2026); Coursera (Sep 2026); Indeed | ~$115–120k medians |
+
+Raw research notes with all figures are in `research/` in this repository.
+
+### A.2 Methodology and honest limitations
+
+- **Recommendations are opinionated syntheses**, not mechanical outputs of the indices. Where the indices disagree (they always do), I weighted job-market evidence and new-code activity over search volume, and current-year momentum over long-run installed base — because the reader is choosing what to *learn*, not what exists.
+- **Salary figures are directional.** They're US-centric, aggregated from sources with different methodologies, and confounded by seniority and domain (§2.3). Treat every dollar figure as ±15% and every ranking as ±2 positions.
+- **Star ratings (★) are judgments**, calibrated against the data but not derived from it by formula. They're meant to be *compared within a table*, not across tables.
+- **"Jobs" claims** reflect the aggregate of IEEE's Jobs ranking, JetBrains' primary-language data, Octoverse activity, and job-board scrapes cited in the research notes. Local markets vary enormously; check yours.
+- **Popularity indices are being disrupted by AI.** Stack Exchange traffic fell to 22% of the prior year; TIOBE's search-based ratings are volatile (Python's swing from 27% to 18% in 14 months is a methodology artifact, not a collapse). GitHub contributor counts and direct developer surveys are currently the most reliable signals.
+- **Recency bias is a risk in the other direction too.** Rust's TIOBE top-10 entry, TypeScript's GitHub #1, and Mojo's 1.0 are real but recent; C, Java, and C++'s installed bases are enormous and will generate jobs for decades regardless of what new projects choose.
+- **This guide will age.** The framework (Part I), the paradigm map (§1.5), and most domain verdicts (Part III) should hold for several years. The numbers (Part II) and the "momentum" calls (§2.4) should be rechecked annually. Watch: Zig 1.0, Mojo adoption, C++ Profiles, Python free-threading ecosystem, Swift on Android, KMP vs Flutter vs RN share, and the junior job market.
+
+### A.3 How to update this guide
+
+Each fall: re-pull TIOBE (monthly), the new Stack Overflow survey (July), Octoverse (October/November), JetBrains (October), IEEE (September), State of Rust (February/March). Update §2.2's scoreboard and §2.4's momentum tables first; then revisit any Part III verdict whose supporting numbers moved by more than a tier.
+
+---
+
+## Appendix B — Glossary
+
+| Term | Meaning |
+|---|---|
+| **Actor model** | Concurrency model where isolated processes communicate only by message passing (Erlang/Elixir, Akka). |
+| **ADT (algebraic data type)** | Types built from sums ("this OR that" — enums with data) and products ("this AND that" — structs/tuples). Central to Rust, Haskell, OCaml, Swift, Kotlin, TypeScript unions. |
+| **AOT / JIT** | Ahead-of-time compilation (C, Rust, Go: compile once to machine code) vs just-in-time (JVM, .NET, V8, Julia: compile at runtime, can optimize dynamically). |
+| **BEAM** | The Erlang virtual machine, host to Erlang, Elixir, and Gleam. |
+| **Borrow checker** | Rust's compile-time system that enforces ownership and reference rules to guarantee memory safety without a garbage collector. |
+| **Cargo / npm / uv / Maven / NuGet** | Package managers and build tools for Rust / JavaScript / Python / Java / .NET. |
+| **CRUD** | Create, Read, Update, Delete — the basic operations of most business applications. |
+| **CUDA** | NVIDIA's platform and C++ dialect for GPU programming; the incumbent for AI kernels. |
+| **Dynamic typing** | Types are checked at runtime (Python, JavaScript, Ruby, Lua). Flexible, fast to write, errors surface late. |
+| **FFI** | Foreign function interface — calling code written in another language (almost always via a C-compatible boundary). |
+| **Free-threading** | Python builds without the Global Interpreter Lock, allowing true multi-core parallelism in threads; officially supported since 3.14. |
+| **Functional programming (FP)** | Programming with pure functions, immutability, and expressions; Haskell, OCaml, F#, Elixir, Clojure, and increasingly features in mainstream languages. |
+| **Garbage collection (GC)** | Automatic memory reclamation (Java, C#, Go, Python, JS). Convenient; adds pauses and overhead unsuitable for some real-time and embedded work. |
+| **GIL** | Global Interpreter Lock — the historical Python mechanism that prevented threads from running Python code in parallel. |
+| **HCL** | HashiCorp Configuration Language, used by Terraform/OpenTofu for infrastructure-as-code. |
+| **JVM / CLR** | The Java Virtual Machine (Java, Kotlin, Scala, Clojure) and .NET's Common Language Runtime (C#, F#). |
+| **KMP** | Kotlin Multiplatform — sharing Kotlin code across Android, iOS, web, desktop. |
+| **LTS** | Long-term support release — one that receives fixes for years (JDK 25, .NET 10, Node LTS lines). |
+| **Memory safety** | Freedom from bugs like buffer overflows, use-after-free, and null dereferences. GC'd languages and Rust are memory-safe; C and C++ are not by default. Roughly 70% of serious vulnerabilities in large C/C++ codebases are memory-safety bugs. |
+| **Ownership** | Rust's core concept: every value has exactly one owner; references are checked for validity at compile time. |
+| **Paradigm** | A style of programming: imperative, object-oriented, functional, logic, array, etc. |
+| **Static typing** | Types are checked at compile time (Java, C#, Go, Rust, TypeScript, Swift, Kotlin). Catches errors early; more upfront ceremony; helps IDEs and AI tools. |
+| **Systems programming** | Writing software close to the hardware or that other software depends on: OS kernels, drivers, databases, runtimes, browsers, embedded firmware. |
+| **Type inference** | The compiler figures out types without you writing them (OCaml, Haskell, Rust, TypeScript, Kotlin, Swift, Go's `:=`). |
+| **Undefined behavior (UB)** | Operations whose result the language spec doesn't define (C/C++); the compiler may do anything, and the source of many security bugs. |
+| **Wasm (WebAssembly)** | A portable binary format that runs in browsers and elsewhere; compile target for Rust, C/C++, Go, Kotlin, Dart, C#, and more. |
+
+---
+
+*End of guide. If you read this far: pick the language from §0 that matches your goal, close this document, and go build something this week.*
