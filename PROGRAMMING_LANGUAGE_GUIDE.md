@@ -843,3 +843,108 @@ One profile per language a reader might realistically be deciding about. Same fi
 - **2026 status:** 48.7% of developers use shell. PowerShell on Windows; Nushell/Fish for interactive use, but write scripts in Bash for portability.
 - **What to learn:** pipes, redirection, quoting, conditionals/loops, `find`/`grep`/`sed`/`awk`/`xargs`/`jq`, `set -euo pipefail`, shellcheck. Switch to Python past ~100 lines.
 - **Verdict:** a required tool, not a career.
+
+### 4.17 Zig
+
+- **What it is:** Andrew Kelley's "better C" (2016): manual memory with explicit allocators, `comptime` metaprogramming, no hidden control flow, a world-class cross-compiler and C/C++ build system. **0.16 (Apr 2026)** introduced a new `std.Io` interface — a major breaking change; 1.0 has no date.
+- **2026 status:** #4 most admired (64%) but the project's official stance is "not stable for serious work." TigerBeetle and Ghostty ship in production on it; Bun — the flagship — left for Rust in Jul 2026 citing continuous memory bugs. LLM support is weak (small corpus, fast-moving APIs).
+- **Learn it if:** you love C, want to understand allocators and comptime, or work on a project that uses it. Also excellent purely as a C/C++ cross-compilation toolchain.
+- **Skip it if:** you need a stable career language or strong AI assistance.
+- **Verdict:** a fascinating language to *learn from*; not a 2026 career bet.
+
+### 4.18 Elixir (and Erlang, Gleam)
+
+- **What it is:** Ruby-flavored functional language (2011, José Valim) on the Erlang VM (BEAM): lightweight processes, supervision trees, "let it crash," hot code reloading. Phoenix (web) and LiveView (server-rendered real-time UI). Gleam (2019; 1.0 in 2024) is a typed, friendlier BEAM language.
+- **2026 status:** Elixir #3 most admired (66%), Gleam #2 (70%); Phoenix the most-admired web framework three years running. Small job market (~2–3% usage), well-paid, concentrated in real-time products, fintech, IoT, and consultancies. Discord, WhatsApp (Erlang), Pinterest, and many chat/telemetry systems run on BEAM.
+- **Strengths:** the best concurrency and fault-tolerance model in mainstream use; LiveView lets one dev ship real-time apps without JS; superb docs and community; Nx/Livebook for ML.
+- **Weaknesses:** small hiring pool both ways; dynamic typing (a gradual type system is arriving); not for CPU-heavy numeric work.
+- **Verdict:** the best language for real-time and must-not-go-down systems; an excellent second or third language; a tough first.
+
+### 4.19 Scala
+
+- **What it is:** Typed OOP+FP on the JVM (2004, Odersky). Scala 3 (2021) simplified the language considerably.
+- **2026 status:** ~2.5% usage, shrinking. Spark's user base moved to PySpark and SQL; Kotlin took the "better Java" slot. Still used at Twitter/X, Databricks internals, some banks, and Akka/Pekko shops. High salaries (scarcity).
+- **Verdict:** learn on the job if hired into it; not a language to pursue cold in 2026.
+
+### 4.20 Haskell, OCaml, F#
+
+- **Haskell:** pure, lazy, the reference point for typed FP. Tiny job market (finance, blockchain — Cardano, a few startups). Learn it to understand type classes, monads, and purity; you'll write better Rust, TypeScript, and Kotlin afterward.
+- **OCaml:** pragmatic typed FP; Jane Street's language; the original Rust compiler; Coq/Rocq; excellent for compilers and tooling. OCaml 5 added multicore and effects. Small elite market.
+- **F#:** OCaml's ideas on .NET; used in finance and data-heavy .NET shops. Small but well-paid. Learn if you're already in .NET and want FP.
+- **Verdict:** enlightenment languages with a handful of lucrative niches; none is a first language for job hunting.
+
+### 4.21 Clojure and other Lisps
+
+- **Clojure:** dynamic Lisp on the JVM (and JS via ClojureScript) with immutable data structures and a REPL-driven workflow. Consistently one of the highest-paid languages in SO surveys (selection effect), with a real if small job market (Nubank — the largest, Walmart historically, many consultancies).
+- **Racket / Scheme / Common Lisp:** teaching and research (Racket, HtDP/SICP), and a small hard-core industrial Lisp community. Common Lisp still has paying niches (Grammarly, some aerospace/defense).
+- **Verdict:** learn a Lisp to understand code-as-data and REPL programming; Clojure is the one with jobs.
+
+### 4.22 Julia
+
+- **What it is:** Dynamic, JIT-compiled, multiple-dispatch language for numerical computing (2012; 1.0 in 2018). Solves the "two-language problem" — write high-level code that runs at C speed.
+- **2026 status:** TIOBE #21 and climbing, explicitly taking MATLAB's share (MATLAB fell to #27). Strong in scientific ML (SciML), differential equations, climate modeling, pharma (Pumas), some finance. Small job market outside academia and national labs.
+- **Strengths:** speed with expressiveness; best-in-class DiffEq and autodiff; excellent for simulation and modeling.
+- **Weaknesses:** "time to first plot" (compile latency, improving); smaller ecosystem than Python; few jobs advertise it.
+- **Verdict:** the right choice for a *new* scientific code you control; a complement to Python, not a replacement.
+
+### 4.23 R
+
+- **2026 status:** TIOBE #9 (1.7%), ~4% usage. Dominant in biostatistics, epidemiology, pharma (FDA submissions), social sciences, ecology; strong in some finance/economics. Tidyverse, ggplot2, Shiny, Quarto; Positron (VS Code–based) is the new IDE alongside RStudio.
+- **Verdict:** essential if your field runs on it; otherwise Python covers the same ground with broader employability. Many analysts know both.
+
+### 4.24 Lua
+
+- **What it is:** Tiny, fast, embeddable scripting language (1993, Brazil). Luau is Roblox's typed dialect.
+- **Dominates:** game scripting (Roblox, Love2D, Defold, PICO-8, World of Warcraft, many AAA studios' tooling), Neovim configuration, Redis scripting, OpenResty/nginx, embedded scripting layers.
+- **Verdict:** learnable in a weekend; an excellent first language for game-motivated kids via Roblox; a useful utility language for everyone else. Not a career on its own.
+
+### 4.25 Solidity, Move, and blockchain languages
+
+- **Solidity:** the EVM contract language; where most deployed value lives; heavy security culture (audits, formal verification). Vyper is a Pythonic alternative.
+- **Rust:** Solana, Polkadot, Near, Cosmos (CosmWasm), most ZK tooling.
+- **Move:** Aptos and Sui; resource-oriented design; smaller market.
+- **Cairo:** Starknet ZK rollups.
+- **Verdict:** volatile, cyclical sector; layer it on top of TS + Rust rather than making it your foundation.
+
+### 4.26 COBOL (and mainframe languages)
+
+- **2026 status:** TIOBE #20. ~$105–125k US median for COBOL/mainframe developers; steady demand at banks, insurers, airlines, and governments; increasingly *modernization* work (API wrapping, Java migration, AI-assisted translation).
+- **Verdict:** a stable niche with decent pay, not a goldmine. Pair with Java, SQL (DB2), JCL, and cloud skills.
+
+### 4.27 Mojo
+
+- **What it is:** Modular's Python-syntax systems language for GPU/AI programming (Chris Lattner, 2023). **Mojo 1.0 shipped Aug 2026 and the compiler was open-sourced under Apache 2.0** (18 Aug 2026). No longer aims to be a Python superset — it's its own language optimized for writing kernels and high-performance code with familiar syntax.
+- **Verdict:** the most interesting *new* language of 2026 for the AI-kernel layer; too early for a career bet, worth a weekend if you work near CUDA/Triton.
+
+### 4.28 Assembly (x86-64, ARM64, RISC-V)
+
+- **Verdict:** read fluently, write rarely. Required for reverse engineering, exploit development, compilers, performance work, and embedded boot code. RISC-V is the cleanest to *learn*; x86-64 and ARM64 are what you'll *meet*.
+
+### 4.29 Visual Basic, Perl, Objective-C, MATLAB, Fortran, Ada, Delphi/Pascal
+
+Legacy or niche languages that appear on rankings (VB is TIOBE #7, Fortran #11, Ada re-entered the top 20) mainly because of installed base and documentation volume. **Learn them on the job if required; do not pursue them cold** — with two exceptions: **Fortran** if you're entering climate/weather/CFD/nuclear codes, and **Ada/SPARK** if you're targeting safety-critical aerospace, rail, or defense (small, stable, well-paid).
+
+### 4.30 Quick-comparison matrix
+
+| Language | Learnability | Jobs (volume) | Jobs (growth) | Pay | Perf | AI-assist quality | First language? | Best second language for… |
+|---|---|---|---|---|---|---|---|---|
+| Python | ★★★★★ | ★★★★★ | ★★★★★ | ★★★ | ★★ | ★★★★★ | **Yes** | anyone who started with TS/Java/C# |
+| TypeScript | ★★★★ | ★★★★★ | ★★★★★ | ★★★★ | ★★★ | ★★★★★ | **Yes** | Python people who need a UI |
+| Java | ★★★ | ★★★★★ | ★★★ | ★★★ | ★★★★ | ★★★★★ | Yes (CS programs) | enterprise-bound devs |
+| C# | ★★★★ | ★★★★ | ★★★★ | ★★★ | ★★★★ | ★★★★ | Yes | gamedev, Microsoft shops |
+| Go | ★★★★ | ★★★★ | ★★★★★ | ★★★★ | ★★★★ | ★★★★ | Possible | backend/DevOps people |
+| Rust | ★★ | ★★★ | ★★★★★ | ★★★★★ | ★★★★★ | ★★★★ | No | systems, tooling, anyone wanting mastery |
+| C | ★★★ | ★★★★ | ★★ | ★★★ | ★★★★★ | ★★★★ | Possible (CS) | embedded, security, systems |
+| C++ | ★★ | ★★★★★ | ★★ | ★★★★ | ★★★★★ | ★★★★ | No | games, HFT, HPC |
+| Kotlin | ★★★★ | ★★★ | ★★★★ | ★★★★ | ★★★★ | ★★★★ | Possible | Android, Java devs |
+| Swift | ★★★ | ★★★ | ★★★ | ★★★★ | ★★★★ | ★★★★ | Possible (Apple-only goal) | iOS |
+| SQL | ★★★★ | ★★★★★ | ★★★ | ★★★ | n/a | ★★★★★ | Alongside first | everyone |
+| PHP | ★★★★★ | ★★★★ | ★★ | ★★ | ★★★ | ★★★★★ | Possible | freelancers |
+| Ruby | ★★★★★ | ★★ | ★ | ★★★★ | ★★ | ★★★★ | No | solo founders |
+| Dart | ★★★★ | ★★ | ★★★ | ★★★ | ★★★★ | ★★★ | No | Flutter |
+| Elixir | ★★★ | ★★ | ★★★ | ★★★★★ | ★★★★ | ★★★ | No | real-time systems |
+| Zig | ★★★ | ★ | ★★ | ★★★★ | ★★★★★ | ★★ | No | C lovers |
+| Julia | ★★★★ | ★ | ★★★ | ★★★ | ★★★★★ | ★★★ | Possible (scientists) | Python scientists |
+| R | ★★★★ | ★★★ | ★★ | ★★★ | ★★ | ★★★★ | Possible (statisticians) | data analysts |
+
+---
