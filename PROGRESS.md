@@ -1,9 +1,7 @@
 # PROGRESS.md — agent memory
 
 ## 2026-09-11
-- Task: comprehensive MD guide "which programming language to learn for what" -> PROGRAMMING_LANGUAGE_GUIDE.md. PLUS a website adaptation (static site in docs/).
-- Branch policy: user said PUSH STRAIGHT TO MAIN. PR #1 already merged.
-- Research in research/*.md. Do not re-research.
-- DONE (on main): §0, Part I, II, III.
-- LOST in reset: Part IV. Redo.
-- NEXT: Part IV (language profiles, 2 commits) -> Part V roadmaps -> VI sequencing -> VII how to learn -> VIII anti-recs -> IX FAQ -> App A sources -> App B glossary. Then website: docs/index.html (client-side markdown render w/ marked.js CDN, sidebar TOC, search, dark mode) + build script that copies guide to docs/guide.md. Serve with python http.server for preview.
+- Task: MD guide (DONE, ~22k words, PROGRAMMING_LANGUAGE_GUIDE.md on main) + website adaptation.
+- Branch policy: push straight to main.
+- Website plan: docs/ static site (GitHub Pages). docs/index.html loads docs/guide.md via fetch, renders with marked.js (CDN), builds sidebar TOC from headings, client-side search, dark mode, mobile drawer. scripts/build.py copies guide -> docs/guide.md and validates headings/anchors. Preview: python3 -m http.server 8080 in docs/.
+- NEXT: write docs/index.html, docs/style.css, docs/app.js, scripts/build.py, README.md. Commit each. Then start server + GetServiceUrl + Playwright check.
